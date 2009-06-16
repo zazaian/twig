@@ -1,5 +1,4 @@
 
-
 class Twirp::Status
   attr_accessor :client, :active
   def initialize(client)

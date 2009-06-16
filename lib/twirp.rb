@@ -7,8 +7,6 @@ require 'twitter'
 
 # Require helper files
 require 'commands'
-require 'options'
-#require 'requirements'
 
 class Twirp
   attr_accessor :options, :login, :password, :client,
@@ -18,9 +16,8 @@ class Twirp
  
   def initialize(opts={}) 
     # Parse options from ARGV
-    @options = Options.parse(ARGV)
-    @login = opts[:login] ? opts[:login] : @options.login
-    @password = opts[:password] ? opts[:password] : @options.password
+    @login = opts[:login] ? opts[:login] : "zazaian" #@options.login
+    @password = opts[:password] ? opts[:password] : "Mistered1" #@options.password
    
     @client = Twitter::Client.new(:login => @login, :password => @password)
     @user = Twitter::User.new(@login)
@@ -28,12 +25,15 @@ class Twirp
     @message_box = Twirp::MessageBox.new(@client)
     @status = Twirp::Status.new(@client)
 
-    update
+    #update :status => false, :message => false
   end
 
-  def update
-    @message_box.update
-    @status.update
+  def update(opts={})
+    message = opts[:message] ? opts[:message] : true
+    status = opts[:status] ? opts[:status] : true
+    
+    @message_box.update if message
+    @status.update if status
     
     @info = @client.my(:info)
     @friends = @client.my(:friends)
@@ -49,9 +49,16 @@ class Twirp
     @message_box.sent
   end
 
+  def received
+    inbox
+  end
+
+  def sent
+    outbox
+  end
+    
+
 end
 require 'version'
 require 'action'
 require 'ago'
-
-t = Twirp.new

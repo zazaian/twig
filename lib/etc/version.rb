@@ -2,8 +2,8 @@
 module Twirp::Version #:nodoc:
   MAJOR = 0
   MINOR = 0
-  TINY = 6
-  REVISION = 6
+  TINY = 7
+  REVISION = 7
   
   # Returns X.Y.Z formatted version string
   def self.to_version
