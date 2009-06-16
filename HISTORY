@@ -1,0 +1,11 @@
+
+0.0.4
+Twirp::Status has cleaner code
+ * Unable to create Status objects using current internet connection
+ * Error may be due to local internet
+
+0.0.3
+Twirp::Status able to get, delete active status
+
+0.0.2
+Add Twirp::Status Class
