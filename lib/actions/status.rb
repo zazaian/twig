@@ -1,14 +1,14 @@
 
-require 'rubygems'
-gem 'twitter4r', '>=0.2.4'
-require 'twitter'
 
-
-class Status
+class Twirp::Status
   attr_accessor :client, :active
-  def initialize#(client)
-    @client = Twitter::Client.new(:login => "zazaian", :password => "Mistered1") #client
-    @active = ago 
+  def initialize(client)
+    @client = client
+    update
+  end
+
+  def update
+    @active = ago
   end
 
   def ago(num=0)

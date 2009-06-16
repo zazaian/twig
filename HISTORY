@@ -1,4 +1,8 @@
 
+0.0.6
+Get Twirp class actively working
+ * Add inbox and outbox methods in the Twirp class
+
 0.0.5
 Add favorite/unfavorite functions to Twirp::Status
 

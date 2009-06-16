@@ -10,9 +10,3 @@ class Action
 
 end
 
-module Actions
-
-  def message(opts={})
-    @messages << Twirp::Message.new(self, opts)
-  end
-

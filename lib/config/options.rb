@@ -2,6 +2,21 @@ require 'optparse'
 require 'optparse/time'
 require 'ostruct'
 
+# Module to include at the beginning of any class that uses hash arguments 
+module CheckOpts
+  def check_opts
+    if @valid_opts
+      opts.each do |o|
+        unless @valid_opts.index(o)
+          raise ArgumentError "\":#{o} is not a valid option for class #{self.class.to_s}."
+        end
+      end
+    else
+      raise "#{self.class.to_s}.valid_opts has not been defined."
+    end
+  end
+end
+
 class Options
 
   CODES = %w[iso-2022-jp shift_jis euc-jp utf8 binary]
@@ -108,17 +123,3 @@ class Options
 
 end  # class OptparseExample
 
-# Module to include at the beginning of any class that uses hash arguments 
-module CheckOpts
-  def check_opts
-    if self::ValidOpts
-      opts.each do |o|
-        unless self::ValidOpts.index(o)
-          raise ArgumentError "\":#{o} is not a valid option for class #{self.class.to_s}."
-        end
-      end
-    else
-      raise "#{self.class.to_s}::ValidOpts has not been defined."
-    end
-  end
-end
