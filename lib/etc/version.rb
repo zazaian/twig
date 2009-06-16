@@ -2,8 +2,8 @@
 module Twirp::Version #:nodoc:
   MAJOR = 0
   MINOR = 0
-  TINY = 3
-  REVISION = 3
+  TINY = 4
+  REVISION = 4
   
   class << self
     # Returns X.Y.Z formatted version string

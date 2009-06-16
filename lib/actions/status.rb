@@ -8,15 +8,14 @@ class Status
   attr_accessor :client, :active
   def initialize#(client)
     @client = Twitter::Client.new(:login => "zazaian", :password => "Mistered1") #client
-    ago
+    @active = ago 
   end
 
   def ago(num=0)
     timeline = @client.timeline_for(:me)
     selected = timeline[num]
     if selected
-      @active = selected
-      output = @active
+      output = selected
     else
       output = nil
       total = timeline.size
