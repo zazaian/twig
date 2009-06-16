@@ -1,7 +1,11 @@
 
+0.0.8
+Vast reorganization of methods in Twirp class
+ * Make Twirp class more selective with Client calls
+
 0.0.7
 Reorganize Twirp Class
-  * Add sent and received methods
+ * Add sent and received methods
 
 0.0.6
 Get Twirp class actively working
