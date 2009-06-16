@@ -1,4 +1,7 @@
 
+0.0.5
+Add favorite/unfavorite functions to Twirp::Status
+
 0.0.4
 Twirp::Status has cleaner code
  * Unable to create Status objects using current internet connection

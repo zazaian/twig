@@ -35,6 +35,48 @@ class Status
     end
   end
 
+  
+  # Add and remove favorites 
+  def fav(id=nil)
+    favorite(id)
+  end
+
+  def unfav(id=nil)
+    unfavorite(id)
+  end
+
+  def favorite(id=nil)
+    f = id ? get(id) : @active
+
+    if ! f.favorited
+      @client.favorite(:add, f.id)
+      f.favorited = true
+      output = f
+    else
+      output = nil
+      raise ArgumentError, "Status id##{f.id}, '#{f.text}' is already a favorite."
+    end
+
+    return output
+  end
+
+  def unfavorite(id=nil)
+    f = id ? get(id) : @active
+
+    if f.favorited
+      @client.favorite(:remove, f.id)
+      f.favorited = false
+      output = f
+    else
+      output = nil
+      raise ArgumentError, "Status id##{f.id}, '#{f.text}' is not a favorite."
+    end
+
+    return output
+  end
+  # end favorites
+  
+
   def get(id=nil)
     get_delete :action => :get, :id => id
   end
@@ -42,18 +84,19 @@ class Status
   def delete(id=nil)
     get_delete :action => :delete, :id => id
   end 
-
-
+  
   private
   #######
   def get_delete(opts={})
     action = opts[:action] ? opts[:action] : :get
     id = opts[:id] ? opts[:id] : nil
+    activate = opts[:activate] ? opts[:activate] : true
+    
     if id
       s = @client.status(action, id)
       if s
         if action == :get
-          @active = s
+          @active = s if activate
         elsif action == :delete
           @active = ago
         end
@@ -77,4 +120,5 @@ class Status
     end
     return output
   end
+  
 end
