@@ -123,6 +123,7 @@ class Twig::Status
 end
 
 module Twig::Status::Methods
+  attr_reader :status
   def status(action=nil)
     if @status
       case action

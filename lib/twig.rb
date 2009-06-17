@@ -10,15 +10,15 @@ gem 'twitter4r', '>=0.2.4'
 require 'twitter'
 
 # Require helper files
-require 'message'
+require 'message_box'
 require 'status'
+require 'friend'
 require 'user'
 require 'version'
 
 class Twig
-  attr_accessor :login, :password, :client,
-                :info, :friends, :followers, :favorites,
-                :status, :timelines, :message, :message_box
+  attr_reader :login, :password, :client,
+              :timelines, :message
  
   def initialize(opts={}) 
     @login = opts[:login] ? opts[:login] : "zazaian" #@options.login
@@ -28,12 +28,15 @@ class Twig
   end
 
   include Twig::Status::Methods
-  # Access to the status object
+  # Access to the Status object
 
   include Twig::MessageBox::Methods 
-  # MessageBox, update, sent, received, inbox, outbox    
+  # MessageBox, update, sent, received, inbox, outbox
+  
+  include Twig::Friend::Methods
+  # Access to the Friend object
   
   include Twig::User
-  # info, friends, favorites, followers
+  # info, favorites, followers
 
 end

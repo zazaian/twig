@@ -19,6 +19,7 @@ class Twig::MessageBox
 end
 
 module Twig::MessageBox::Methods
+  attr_reader :message_box
   def message_box(action=nil)
     if @message_box
       case action

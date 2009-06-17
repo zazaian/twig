@@ -1,4 +1,14 @@
 
+0.0.10
+Add Twig::Friend class
+ * Full functionality for finding, adding, removing friends.
+
+0.0.9
+Move top-level methods into categorically-arranged modules
+ * Rename from Twirp to Twig
+ * Recognize that Twig is the MVC Model for client Twirp
+ * Add user.switch method that should go in the Twirp class
+
 0.0.8
 Vast reorganization of methods in Twirp class
  * Make Twirp class more selective with Client calls
