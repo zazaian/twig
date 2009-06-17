@@ -1,5 +1,5 @@
 
-class Twirp::Status
+class Twig::Status
   attr_accessor :client, :active
   def initialize(client)
     @client = client
@@ -120,4 +120,23 @@ class Twirp::Status
     return output
   end
   
+end
+
+module Twig::Status::Methods
+  def status(action=nil)
+    if @status
+      case action
+      when :create
+        @status = Twig::Status.new(@client)
+      when :update
+        @status.update
+      when nil
+        @status
+      else
+        raise ArgumentError, "#{action} is not a valid argument for @status."
+      end
+    else
+      @status = Twig::Status.new(@client)
+    end
+  end  
 end
