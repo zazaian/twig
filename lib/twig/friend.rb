@@ -1,97 +1,57 @@
 
-class Twig::Friend
-  attr_accessor :client, :all, :active, :timeline, :is_friend
+class Twig::FriendBox
+  attr_accessor :client, :all, :active, :find, :sort_by
   def initialize(client)
     @client = client
-    update
-  end
-
-  def update
-    @active = number
-    @is_friend = true
-  end
-
-  def is_friend
-    @is_friend = @is_friend ? false : true
+    @active = first
   end
 
   def all(action=nil)
     if @all
       case action
       when :update
-        @all = @client.my(:friends)
+        @all = @client.my(:friends).collect {|f| Twig::Friend.new(@client, f) }
       when nil
         @all
       else
         raise ArgumentError, "#{action} is not a valid argument for @all."
       end
     else
-      @all = @client.my(:friends)
+      @all = @client.my(:friends).collect {|f| Twig::Friend.new(@client, f) }
     end
   end
 
-  def message(text)
-    if text.size <= 140
-      @client.message(:post, text, @active)
+  def sort_by(ivar, opts={})
+    ivars = {
+      :id => :@id,
+      :screen_name => :@screen_name,
+      :sn => :@screen_name,
+      :time => :@created_at,
+      :created => :@created_at,
+      :name => :@name,
+      :favorites => :@favourites_count,
+      :statuses => :@statuses_count,
+      :followers => :@followers_count,
+      :following => :@following
+      }
+
+    page = opts[:page] ? opts[:page] : 1
+    page_size = opts[:page_size] ? opts[:page_size] : 10
+    dir = opts[:dir] ? opts[:dir] : :desc
+
+    if ! ivars[ivar]
+      raise ArgumentError, "#{ivar} is not a valid argument for sort_by."
     else
-      raise ArgumentError, "Direct Messages (DMs) must be no longer than 140 characters."
-    end
-  end
-
-  def number(num=0)
-    friends = all
-    selected = friends[num]
-    if selected
-      output = selected
-    else
-      output = nil
-      total = friends.size
-      raise ArgumentError, "Friend #{num} does not exist.  You only have #{total} on Twitter."
-    end
-
-    return output
-  end
-
-  def timeline(action=nil)
-    if @timeline
-      case action
-      when :update
-        @timeline = @client.timeline_for(:friend, :id => @active.screen_name)
-      when nil
-        @timeline
-      else
-        raise ArgumentError, "#{action} is not a valid argument for friend.timeline."
+      output = all.sort do |x,y|
+        y.info.instance_variable_get(ivars[ivar]) <=> x.info.instance_variable_get(ivars[ivar])
       end
-    else
-      @timeline = @client.timeline_for(:friend, :id => @active.screen_name)
+      output.reverse! if dir == :asc
+      starts, ends = ((page_size * page) - page_size), (page_size * page)
+      
+      return output[starts, ends]
     end
   end
-
-  def befriend(id=nil)
-    if ! @is_friend
-      output = @active.befriend
-      is_friend
-    else
-      output = nil
-      raise ArgumentError, "'#{@active.screen_name}' is already your friend."
-    end
-
-    return output
-  end
-
-
-  def defriend(id=nil)
-    if @is_friend
-      output = @active.defriend
-      is_friend
-    else
-      output = nil
-      raise ArgumentError, "'#{@active.screen_name}' is not currently your friend."
-    end
-
-    return output
-  end
-
+  
   def find(opts={})
     id = opts[:id] ? opts[:id] : nil
     screen_name = opts[:screen_name] ? opts[:screen_name] : nil
@@ -105,14 +65,14 @@ class Twig::Friend
         friends = all
         if id 
           friends.each do |f|
-            if f.id == id
+            if f.info.id == id
               output = f
               break
             end
           end
         elsif screen_name
           friends.each do |f|
-            if f.screen_name == screen_name
+            if f.info.screen_name == screen_name
               output = f
               break
             end
@@ -148,33 +108,109 @@ class Twig::Friend
 
   def id(num)
     find :id => num
+  end 
+  
+  def first
+    all[0]
   end
+
+  def last
+    all[all.size - 1]
+  end
+
+end
+
+
+
+class Twig::Friend
+  attr_accessor :client, :info, :is_friend
+  def initialize(client, info)
+    @client = client
+    @info = info
+  end
+
+  def is_friend
+    @is_friend = @is_friend ? false : true
+  end
+
+  def message(text)
+    if text.size <= 140
+      @client.message(:post, text, @info)
+    else
+      raise ArgumentError, "Direct Messages (DMs) must be no longer than 140 characters."
+    end
+  end
+
+  def timeline(action=nil)
+    if @timeline
+      case action
+      when :update
+        @timeline = @client.timeline_for(:friend, :id => @info.screen_name)
+      when nil
+        @timeline
+      else
+        raise ArgumentError, "#{action} is not a valid argument for friend.timeline."
+      end
+    else
+      @timeline = @client.timeline_for(:friend, :id => @info.screen_name)
+    end
+  end
+
+  def befriend(id=nil)
+    if ! @is_friend
+      output = @info.befriend
+      is_friend
+    else
+      output = nil
+      raise ArgumentError, "'#{@info.screen_name}' is already your friend."
+    end
+
+    return output
+  end
+
+
+  def defriend(id=nil)
+    if @is_friend
+      output = @info.defriend
+      is_friend
+    else
+      output = nil
+      raise ArgumentError, "'#{@info.screen_name}' is not currently your friend."
+    end
+
+    return output
+  end
+
 end
 
 module Twig::Friend::Methods
-  attr_reader :friend
-  def friend(action=nil)
-    if @friend
+  attr_reader :friend, :friend_box
+  def friend_box(action=nil)
+    if @friend_box
       case action
-      when Fixnum
-        @friend.id(action)
-      when String
-        @friend.sn(action)
       when :create
-        @friend = Twig::Friend.new(@client)
+        @friend_box = Twig::FriendBox.new(@client)
       when :update
-        @friend.update
+        @friend_box.all :update
       when nil
-        @friend
+        @friend_box
       else
         raise ArgumentError, "#{action} is not a valid argument for @friend."
       end
     else
-      @friend = Twig::Friend.new(@client)
+      @friend_box = Twig::FriendBox.new(@client)
     end
   end
 
-  def friends(action=nil)
-    friend(action)
+  def friend(action=nil)
+    case action 
+    when Fixnum
+      friend_box.id(action)
+    when String
+      friend_box.sn(action)
+    when nil
+      friend_box.active
+    end
   end
 end
+

@@ -18,8 +18,7 @@ require 'version'
 #require 'ago'
 
 class Twig
-  attr_reader :login, :password, :client,
-              :timelines, :message
+  attr_reader :login, :password, :client, :timelines, :message
  
   def initialize(opts={}) 
     @login = opts[:login] ? opts[:login] : "zazaian" #@options.login
