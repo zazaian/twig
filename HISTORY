@@ -1,4 +1,8 @@
 
+0.0.13
+Fix bugs in Twig::Friend and Twig::FriendBox
+ * Fix bug in Twig::Friend.timeline
+
 0.0.12
 Divide Twig::Friend into Friend and FriendBox
  * Still need to fix Twig::Friend.timeline

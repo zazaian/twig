@@ -6,6 +6,21 @@ class Twig::FriendBox
     @active = first
   end
 
+  def active(action=nil)
+    if @active
+      case action
+      when :update
+        @active = first
+      when nil
+        @active
+      else
+        raise ArgumentError, "#{action} is not a valid argument for @active."
+      end
+    else
+      @active = first
+    end
+  end
+
   def all(action=nil)
     if @all
       case action
@@ -55,7 +70,7 @@ class Twig::FriendBox
   def find(opts={})
     id = opts[:id] ? opts[:id] : nil
     screen_name = opts[:screen_name] ? opts[:screen_name] : nil
-    activate = opts[:activate] ? opts[:activate] : true
+    activate = opts[:activate] ? opts[:activate] : false
 
     if id || screen_name
       if id && screen_name
@@ -98,6 +113,17 @@ class Twig::FriendBox
     return output
   end
 
+  def activate(arg)
+    case arg
+    when Fixnum
+      find :id => arg, :activate => true
+    when String
+      find :screen_name => arg, :activate => true
+    else
+      raise ArgumentError, "#{action} is not a valid argument for @activate."
+    end
+  end
+
   def screen_name(name)
     find :screen_name => name
   end
@@ -123,14 +149,18 @@ end
 
 
 class Twig::Friend
-  attr_accessor :client, :info, :is_friend
+  attr_accessor :client, :info, :timeline, :is_friend
   def initialize(client, info)
     @client = client
     @info = info
   end
 
-  def is_friend
+  def toggle
     @is_friend = @is_friend ? false : true
+  end
+
+  def is_friend?
+    @is_friend
   end
 
   def message(text)
@@ -145,14 +175,14 @@ class Twig::Friend
     if @timeline
       case action
       when :update
-        @timeline = @client.timeline_for(:friend, :id => @info.screen_name)
+        @timeline = @client.timeline_for(:user, :id => @info.id.to_s)
       when nil
         @timeline
       else
         raise ArgumentError, "#{action} is not a valid argument for friend.timeline."
       end
     else
-      @timeline = @client.timeline_for(:friend, :id => @info.screen_name)
+      @timeline = @client.timeline_for(:user, :id => @info.id.to_s)
     end
   end
 
@@ -200,6 +230,10 @@ module Twig::Friend::Methods
     else
       @friend_box = Twig::FriendBox.new(@client)
     end
+  end
+
+  def friends(action=nil)
+    friend_box(action)
   end
 
   def friend(action=nil)
