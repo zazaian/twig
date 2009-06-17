@@ -30,6 +30,14 @@ class Twig::Friend
     end
   end
 
+  def message(text)
+    if text.size <= 140
+      @client.message(:post, text, @active)
+    else
+      raise ArgumentError, "Direct Messages (DMs) must be no longer than 140 characters."
+    end
+  end
+
   def number(num=0)
     friends = all
     selected = friends[num]
@@ -48,14 +56,14 @@ class Twig::Friend
     if @timeline
       case action
       when :update
-        @timeline = @client.timeline_for(:friend, @active.id)
+        @timeline = @client.timeline_for(:friend, :id => @active.screen_name)
       when nil
         @timeline
       else
         raise ArgumentError, "#{action} is not a valid argument for friend.timeline."
       end
     else
-      @timeline = @client.timeline_for(:friend, @active.id)
+      @timeline = @client.timeline_for(:friend, :id => @active.screen_name)
     end
   end
 
@@ -118,7 +126,7 @@ class Twig::Friend
           if id
             raise "Couldn't find friend ##{id}"
           else
-            raise "Couldn't find screen_name '#{screen_name}'"
+            raise "Couldn't find friend with screen_name '#{screen_name}'"
           end
         end
       end
@@ -134,6 +142,10 @@ class Twig::Friend
     find :screen_name => name
   end
 
+  def sn(name)
+    screen_name(name)
+  end
+
   def id(num)
     find :id => num
   end
@@ -144,6 +156,10 @@ module Twig::Friend::Methods
   def friend(action=nil)
     if @friend
       case action
+      when Fixnum
+        @friend.id(action)
+      when String
+        @friend.sn(action)
       when :create
         @friend = Twig::Friend.new(@client)
       when :update
@@ -159,6 +175,6 @@ module Twig::Friend::Methods
   end
 
   def friends(action=nil)
-    @friend.all(action)
+    friend(action)
   end
 end
