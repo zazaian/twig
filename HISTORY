@@ -1,4 +1,9 @@
 
+0.0.15
+Add Timeline::Classes and Methods
+ * Need to re-structure Timeline::User
+ * Need to re-structure User methods into Twig::My
+
 0.0.14
 Organize Twig::Messages into Inbox and Outbox
  * find() function not yet working

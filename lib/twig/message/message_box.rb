@@ -1,89 +1,4 @@
 
-class Twig
-end
-
-class Twig::Messages
-  attr_accessor :client, :inbox, :outbox, :all
-  def initialize(client)
-    @client = client
-  end
-
-  def inbox(action=nil)
-    if @inbox
-      case action
-      when :update
-        @inbox = Twig::Messages::Inbox.new(@client)
-      when nil
-        @inbox
-      else
-        raise ArgumentError, "#{action} is not a valid argument for @active."
-      end
-    else
-      @inbox = Twig::Messages::Inbox.new(@client)
-    end
-  end
-
-  def outbox(action=nil)
-    if @outbox
-      case action
-      when :update
-        @outbox = Twig::Messages::Outbox.new(@client)
-      when nil
-        @outbox
-      else
-        raise ArgumentError, "#{action} is not a valid argument for @active."
-      end
-    else
-      @outbox = Twig::Messages::Outbox.new(@client)
-    end
-  end
-
-  def in
-    inbox.contents
-  end
-
-  def out
-    outbox.contents
-  end
-  
-  def received
-    inbox.contents
-  end
-
-  def sent
-    outbox.contents
-  end
-
-  def all
-    inbox.contents + outbox.contents
-  end
-
-  def count
-    inbox.size + outbox.size
-  end
-
-  def size
-    count
-  end
-end
-
-class Twig::Message
-  attr_accessor :client, :info
-  def initialize(client, info)
-    @client = client
-    @info = info
-  end
-
-  def delete
-    @client.message(:delete, @info)
-  end
-
-  def reply(text)  
-    @client.message(:post, text, @info.sender.id)
-  end
-end
-
-
 class Twig::Messages::Box
   attr_accessor :client, :contents, :active
   def initialize(client)
@@ -137,7 +52,7 @@ class Twig::Messages::Box
       :name => :@name
     }
 
-    user = self.class == Twig::Messages::Inbox ? :@sender : :@recipient
+    user = self.class == Twig::Inbox ? :@sender : :@recipient
 
     page = opts[:page] ? opts[:page] : 1
     page_size = opts[:page_size] ? opts[:page_size] : 10
@@ -146,7 +61,7 @@ class Twig::Messages::Box
     if ! msg_vars[ivar] && ! user_vars[ivar]
       raise ArgumentError, "#{ivar} is not a valid argument for sort_by."
     else
-      output = all.sort do |x,y|
+      output = contents.sort do |x,y|
         if msg_vars[ivar]
           y.info.instance_variable_get(msg_vars[ivar]) <=> \
             x.info.instance_variable_get(msg_vars[ivar])
@@ -229,43 +144,50 @@ class Twig::Messages::Box
   end
 end
 
-class Twig::Messages::Inbox < Twig::Messages::Box
+class Twig::Inbox < Twig::Messages::Box
   def fill
-    @client.messages(:received).collect {|m| Twig::Message.new(@client, m) }
+    @client.messages(:received).collect {|m| Twig::Inbox::Message.new(@client, m) }
   end
 end
 
-class Twig::Messages::Outbox < Twig::Messages::Box
+class Twig::Outbox < Twig::Messages::Box
   def fill
-    @client.messages(:sent).collect {|m| Twig::Message.new(@client, m) }
+    @client.messages(:sent).collect {|m| Twig::Outbox::Message.new(@client, m) }
   end
 end
 
-
-module Twig::Messages::Methods
-  attr_reader :message_box
-  def messages(action=nil)
-    if @messages
-      case action
-      when :create
-        @messages = Twig::Messages.new(@client)
-      when :update
-        @messages.update
-      when nil
-        @messages
+class Twig::Inbox::Message < Twig::Message
+  def reply(text)
+    @client.message(:post, text, @info.sender.id)
+  end
+  
+  def forward_to(id_sn, preface=true)
+    user = @client.user(id_sn)
+    if user
+    text = preface ? "#{@info.sender.screen_name} wrote: '#{@info.text}'" : @info.text
+      if text.size > 140
+        raise "Message '#{text}' is longer than 140 characters."
       else
-        raise ArgumentError
+        @client.message(:post, text, user.id)
       end
-    else
-      @messages = Twig::Messages.new(@client)
     end
-  end
+  end   
+end
 
-  def inbox
-    messages.inbox
+class Twig::Outbox::Message < Twig::Message
+  def reply(text)
+    @client.message(:post, text, @info.recipient.id)
   end
-
-  def outbox
-    messages.outbox
-  end
+  
+  def forward_to(id_sn, preface=true)
+    user = @client.user(id_sn)
+    if user
+    text = preface ? "#{@info.recipient.screen_name} wrote: '#{@info.text}'" : @info.text
+      if text.size > 140
+        raise "Message '#{text}' is longer than 140 characters."
+      else
+        @client.message(:post, text, user.id)
+      end
+    end
+  end   
 end

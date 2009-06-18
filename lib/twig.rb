@@ -13,12 +13,12 @@ require 'twitter'
 require 'message'
 require 'status'
 require 'friend'
+require 'timeline'
 require 'user'
 require 'version'
-#require 'ago'
 
 class Twig
-  attr_reader :login, :password, :client, :timelines, :message
+  attr_reader :login, :password, :client
   protected :password
  
   def initialize(opts={}) 
@@ -36,6 +36,12 @@ class Twig
   
   include Twig::Friend::Methods
   # Access to the Friend object
+  
+  include Twig::Timelines::Methods
+  # Access to the Timelines::Objects
+  
+  include Twig::My
+  # Namespace for various user-centric data
   
   include Twig::User
   # info, favorites, followers

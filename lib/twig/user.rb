@@ -1,4 +1,14 @@
 
+class Twig::My
+  attr_reader :client, :favorites, :followers, :friends, :timeline, :info, :status
+  def initialize(client)
+    @client = client
+  end
+end
+
+class Twig::My::Methods
+end
+
 module Twig::User
   attr_reader :info, :favorites, :followers
   def info(action=nil)

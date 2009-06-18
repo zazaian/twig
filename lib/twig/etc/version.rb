@@ -2,8 +2,8 @@
 module Twig::Version #:nodoc:
   MAJOR = 0
   MINOR = 0
-  TINY = 14
-  REVISION = 14
+  TINY = 15
+  REVISION = 15
   
   # Returns X.Y.Z formatted version string
   def self.to_version
