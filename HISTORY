@@ -1,4 +1,8 @@
 
+0.0.14
+Organize Twig::Messages into Inbox and Outbox
+ * find() function not yet working
+
 0.0.13
 Fix bugs in Twig::Friend and Twig::FriendBox
  * Fix bug in Twig::Friend.timeline
