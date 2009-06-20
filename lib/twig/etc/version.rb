@@ -1,17 +1,20 @@
 
-module Twig::Version #:nodoc:
+module Twig::VERSION #:nodoc:
   MAJOR = 0
-  MINOR = 0
-  TINY = 15
-  REVISION = 15
+  MINOR = 5
+  TINY = 1
   
-  # Returns X.Y.Z formatted version string
-  def self.to_version
-    "#{MAJOR}.#{MINOR}.#{TINY}"
-  end
-  
-  # Returns X-Y-Z formatted version name
-  def self.to_name
-    "#{MAJOR}_#{MINOR}_#{TINY}"
+  class << self
+    # Returns X.Y.Z formatted version string
+    def to_version
+      "#{MAJOR}.#{MINOR}.#{TINY}"
+    end
+    alias_method :print, :to_version
+    alias_method :pretty, :to_version
+    
+    # Returns X-Y-Z formatted version name
+    def to_name
+      "#{MAJOR}_#{MINOR}_#{TINY}"
+    end
   end
 end

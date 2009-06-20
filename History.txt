@@ -1,58 +1,65 @@
 
-0.0.15
+== 0.5.1
+* 4 Minor Improvements
+ * Add Rakefile
+ * Add alias methods in Twig::Version
+ * Add Manifest
+ * Rename Twig::Version to Twig::VERSION
+
+== 0.5.0
 Add Timeline::Classes and Methods
  * Need to re-structure Timeline::User
  * Need to re-structure User methods into Twig::My
 
-0.0.14
+== 0.4.0
 Organize Twig::Messages into Inbox and Outbox
  * find() function not yet working
 
-0.0.13
+== 0.3.3
 Fix bugs in Twig::Friend and Twig::FriendBox
  * Fix bug in Twig::Friend.timeline
 
-0.0.12
+== 0.3.2
 Divide Twig::Friend into Friend and FriendBox
  * Still need to fix Twig::Friend.timeline
 
-0.0.11
+== 0.3.1
 Fix bugs in the Twig::Friend class
  * Need to fix output for Twig::Friend.timeline
  * Need to add options to Twig::Friend.timeline
 
-0.0.10
+== 0.3.0
 Add Twig::Friend class
  * Full functionality for finding, adding, removing friends.
 
-0.0.9
+== 0.2.1
 Move top-level methods into categorically-arranged modules
  * Rename from Twirp to Twig
  * Recognize that Twig is the MVC Model for client Twirp
  * Add user.switch method that should go in the Twirp class
 
-0.0.8
+== 0.2.0
 Vast reorganization of methods in Twirp class
  * Make Twirp class more selective with Client calls
 
-0.0.7
+== 0.1.2
 Reorganize Twirp Class
  * Add sent and received methods
 
-0.0.6
+== 0.1.1
 Get Twirp class actively working
  * Add inbox and outbox methods in the Twirp class
 
-0.0.5
+== 0.1.0
 Add favorite/unfavorite functions to Twirp::Status
 
-0.0.4
+== 0.0.4
 Twirp::Status has cleaner code
  * Unable to create Status objects using current internet connection
  * Error may be due to local internet
 
-0.0.3
+== 0.0.3
 Twirp::Status able to get, delete active status
 
-0.0.2
+== 0.0.2
 Add Twirp::Status Class
