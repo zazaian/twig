@@ -1,6 +1,6 @@
 
 class Twig::Users
-  attr_reader :fetched
+  attr_accessor :client, :active, :fetched
   def initialize(client)
     @client = client
   end
@@ -14,22 +14,7 @@ class Twig::Users
     end
 
     return output
-  end
-  
-  def active(action=nil)
-    if @active
-      case action
-      when :update
-        @active = first
-      when nil
-        @active
-      else
-        raise ArgumentError, "#{action} is not a valid argument for @active."
-      end
-    else
-      @active = first
-    end
-  end
+  end 
 
   def fetched(action=nil)
     if @fetched
@@ -56,15 +41,15 @@ class Twig::Users
       case id_sn
       when Fixnum
         if @fetched[id_sn]
-          active = fetched[id_sn]
-          output = active
+          @active = fetched[id_sn]
+          output = @active
         else
           user_check = @client.user(id_sn)
           if user_check
             id = user_check.id
-            fetched[id] = user_check
-            active = fetched[id]
-            output = active
+            fetched[id] = Twig::User.new(@client, user_check)
+            @active = fetched[id]
+            output = @active
           else
             output = nil
             raise "Twitter user ##{id} could not be found."
@@ -74,8 +59,8 @@ class Twig::Users
         match = nil
         #sort through fetched users
         fetched.each do |user_id, user_obj|
-          if user_obj.screen_name == id_sn
-            match = fetched[user_obj.id]
+          if user_obj.info.screen_name == id_sn
+            match = fetched[user_obj.info.id]
             break
           end
         end
@@ -87,9 +72,9 @@ class Twig::Users
           user_check = @client.user(id_sn)
           if user_check
             id = user_check.id
-            fetched[id] = user_check
-            active = fetched[id]
-            output = active
+            fetched[id] = Twig::User.new(@client, user_check)
+            @active = fetched[id]
+            output = @active
           else
             output = nil
             raise "Twitter user '#{user}' could not be found."
@@ -97,15 +82,15 @@ class Twig::Users
         end
       when Twitter::User
         if fetched[id_sn.id]
-          active = fetched[id_sn.id]
-          output = active
+          @active = fetched[id_sn.id]
+          output = @active
         else
           user_check = @client.user(id_sn.id)
           if user_check
             id = user_check.id
-            fetched[id] = user_check
-            active = fetched[id]
-            output = active
+            fetched[id] = Twig::User.new(@client, user_check)
+            @active = fetched[id]
+            output = @active
           else
             output = nil
             raise "Twitter user ##{user} could not be found."

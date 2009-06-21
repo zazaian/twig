@@ -1,4 +1,8 @@
 
+== 0.5.6
+* 1 Minor Improvement
+ * Fixed bugs in Twig::User
+
 == 0.5.5
 * 1 Major Improvement
  * Add Twig::User Class
