@@ -15,6 +15,7 @@ require 'status'
 require 'friend'
 require 'timeline'
 require 'user'
+require 'my'
 require 'version'
 
 class Twig
@@ -40,10 +41,10 @@ class Twig
   include Twig::Timelines::Methods
   # Access to the Timelines::Objects
   
-  #include Twig::My
+  include Twig::My::Methods
   # Namespace for various user-centric data
   
-  include Twig::User
+  #include Twig::User::Methods
   # info, favorites, followers
 
 end

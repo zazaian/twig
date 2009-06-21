@@ -1,58 +1,41 @@
 
-class Twig::My
-  attr_reader :client, :favorites, :followers, :friends, :timeline, :info, :status
+class Twig::Users
   def initialize(client)
     @client = client
   end
-end
 
-class Twig::My::Methods
-end
-
-module Twig::User
-  attr_reader :info, :favorites, :followers
-  def info(action=nil)
-    if @info
-      case action
-      when :update
-        @info = @client.my(:info)
-      when nil
-        @info
-      else
-        raise ArgumentError, "#{action} is not a valid argument for @info."
-      end
+  def user(id_sn, action=nil)
+    unless [String, Fixnum, Twitter::User].member?(user.class)
+      raise "User must be inputted as either a screen_name(String), a user id#(Fixnum)," \
+          + " or a Twitter::User object."
     else
-      @info = @client.my(:info)
+      if @user[id_sn]
+        id = id_sn
+      else
+        user_check = @client.user(user)
+        if user_check
+          id = user_check.id
+        else
+          raise "Twitter user '#{user}' could not be found."
+        end
+      end
     end
-  end
-
-  def favorites(action=nil)
-    if @favorites
+    
+    if @user
       case action
       when :update
-        @favorites = @client.favorites
+        @user = {}
+        @user[id] = Twig::Timeline::User.new(@client, user_check)
       when nil
-        @favorites
+        @user
       else
-        raise ArgumentError, "#{action} is not a valid argument for @favorites."
+        raise ArgumentError, "#{action} is not a valid argument for @active."
       end
     else
-      @favorites = @client.favorites
-    end
-  end
-
-  def followers(action=nil)
-    if @followers
-      case action
-      when :update
-        @followers = @client.my(:followers)
-      when nil
-        @followers
-      else
-        raise ArgumentError, "#{action} is not a valid argument for @followers."
-      end
-    else
-      @followers = @client.my(:followers)
+      @user = {}
+      @user[id] = Twig::Timeline::User.new(@client, user_check)
     end
   end
 end
+
+

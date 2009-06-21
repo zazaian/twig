@@ -1,4 +1,10 @@
 
+== 0.5.3
+* 3 Minor Improvement
+ * Create Twig::User Class
+ * Create Twig::My Class
+ * Create Twig::My::Methods module
+
 == 0.5.2
 * 3 Minor Improvement
  * Fix bug in /lib/twig/timeline.rb
