@@ -4,6 +4,17 @@ class Twig::Users
   def initialize(client)
     @client = client
   end
+
+  def first
+    if fetched.size > 0
+      # Find the first object sorted by id
+      fetched[fetched.sort {|a,b| a[1] <=> b[1]}[0][0]]
+    else
+      output = nil
+    end
+
+    return output
+  end
   
   def active(action=nil)
     if @active
@@ -38,61 +49,63 @@ class Twig::Users
 
   
   def find(id_sn, action=nil)
-    unless [String, Fixnum, Twitter::User].member?(user.class)
+    unless [String, Fixnum, Twitter::User].member?(id_sn.class)
       raise "User must be inputted as either a screen_name(String), a user id#(Fixnum)," \
           + " or a Twitter::User object."
     else
       case id_sn
       when Fixnum
         if @fetched[id_sn]
-          @active = @fetched[id_sn]
-          output = @active
+          active = fetched[id_sn]
+          output = active
         else
           user_check = @client.user(id_sn)
           if user_check
             id = user_check.id
-            @fetched[id] = user_check
-            @active = @fetched[id]
-            output = @active
+            fetched[id] = user_check
+            active = fetched[id]
+            output = active
           else
             output = nil
             raise "Twitter user ##{id} could not be found."
           end
         end
       when String
-        @fetched.each do |u|
-          if u.screen_name == id_sn
-            match = @fetched[u.id]
+        match = nil
+        #sort through fetched users
+        fetched.each do |user_id, user_obj|
+          if user_obj.screen_name == id_sn
+            match = fetched[user_obj.id]
             break
           end
         end
 
         if match
-          @active = match
-          output = @active
+          active = match
+          output = active
         else
           user_check = @client.user(id_sn)
           if user_check
             id = user_check.id
-            @fetched[id] = user_check
-            @active = @fetched[id]
-            output = @active
+            fetched[id] = user_check
+            active = fetched[id]
+            output = active
           else
             output = nil
             raise "Twitter user '#{user}' could not be found."
           end
         end
       when Twitter::User
-        if @fetched[id_sn.id]
-          @active = @fetched[id_sn.id]
-          output = @active
+        if fetched[id_sn.id]
+          active = fetched[id_sn.id]
+          output = active
         else
           user_check = @client.user(id_sn.id)
           if user_check
             id = user_check.id
-            @fetched[id] = user_check
-            @active = @fetched[id]
-            output = @active
+            fetched[id] = user_check
+            active = fetched[id]
+            output = active
           else
             output = nil
             raise "Twitter user ##{user} could not be found."
@@ -107,27 +120,71 @@ class Twig::Users
   alias_method :sn, :find
   alias_method :id, :find
  
-  def first
-    fetched[0]
-  end
-
-  def last
-    fetched[fetched.size - 1]
-  end
 end
 
 class Twig::User
-  attr_accessor :client
-  def initialize(client)
+  attr_accessor :client, :info, :timeline
+  def initialize(client, user)
     @client = client
+    @info = user
+  end
+  
+  def timeline(action=nil)
+    if @timeline
+      case action
+      when :update
+        @timeline = @client.timeline_for(:user, :id => @info.id)
+      when nil
+        @timeline
+      else
+        raise ArgumentError, "#{action} is not a valid argument for @timeline."
+      end
+    else
+      @timeline = @client.timeline_for(:user, :id => @info.id)
+    end
+  end
+
+  def status
+    timeline[0]
+  end
+
+  def message(text)
+    if text.size > 140
+      raise ArgumentError, "Message cannot be longer than 140 characters.  Please trim " \
+                         + "#{text.size - 140} characters from the message and try again."
+    else
+      @client.message(:post, text, @info.id)
+    end
+  end
+
+  def befriend
+    @client.friend(:add, @info.id)
+  end
+
+  def defriend
+    @client.friend(:remove, @info.id)
   end
 end
 
 module Twig::Users::Methods
   attr_reader :users
-  @user = Twig::Users.new(@client)
+  
+  def users(action=nil)
+    if @users
+      case action
+      when :clear
+        @users = Twig::Users.new(@client)
+      when nil
+        @users
+      else
+        raise ArgumentError, "#{action} is not a valid argument for @users."
+      end
+    else
+      @users = Twig::Users.new(@client)
+    end
+  end
 
   def user(id_sn)
-    @user.fetched[id_sn]
+    users.find(id_sn)
   end
 end

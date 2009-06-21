@@ -1,11 +1,20 @@
 
-==0.5.4
+== 0.5.5
+* 1 Major Improvement
+ * Add Twig::User Class
+
+* 3 Minor Improvements
+ * Allow messaging through Twig::User
+ * Befriend, defriend Twig::User
+ * Get Timeline for Twig::User
+
+== 0.5.4
 * 1 Major Improvement
  * Add find() function for Users Class
 
 == 0.5.3
 * 3 Minor Improvement
- * Create Twig::User Class
+ * Create Twig::Users Class
  * Create Twig::My Class
  * Create Twig::My::Methods module
 

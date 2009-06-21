@@ -44,7 +44,7 @@ class Twig
   include Twig::My::Methods
   # Namespace for various user-centric data
   
-  #include Twig::User::Methods
-  # info, favorites, followers
+  include Twig::Users::Methods
+  # Access to the Twig::User class
 
 end
