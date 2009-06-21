@@ -1,4 +1,10 @@
 
+== 0.5.2
+* 3 Minor Improvement
+ * Fix bug in /lib/twig/timeline.rb
+ * Add aliases for timeline.mine
+ * Write alises with alias_method
+
 == 0.5.1
 * 4 Minor Improvements
  * Add Rakefile

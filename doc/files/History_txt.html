@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: History.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>History.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>History.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sat, 20 Jun 2009 23:01:05 +1000</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+    <div id="diagram">
+      <map id="map" name="map">
+</map>
+<img src="../dot/f_1.png" usemap="#map" border="0" alt="dot/f_1.png">
+    </div>
+
+    <div id="description">
+      <h2>0.5.1</h2>
+<ul>
+<li>4 Minor Improvements
+
+</li>
+</ul>
+<pre>
+ * Add Rakefile
+ * Add alias methods in Twig::Version
+ * Add Manifest
+ * Rename Twig::Version to Twig::VERSION
+</pre>
+<h2>0.5.0</h2>
+<p>
+Add Timeline::Classes and Methods
+</p>
+<pre>
+ * Need to re-structure Timeline::User
+ * Need to re-structure User methods into Twig::My
+</pre>
+<h2>0.4.0</h2>
+<p>
+Organize <a href="../classes/Twig/Messages.html">Twig::Messages</a> into
+Inbox and Outbox
+</p>
+<pre>
+ * find() function not yet working
+</pre>
+<h2>0.3.3</h2>
+<p>
+Fix bugs in <a href="../classes/Twig/Friend.html">Twig::Friend</a> and <a
+href="../classes/Twig/FriendBox.html">Twig::FriendBox</a>
+</p>
+<pre>
+ * Fix bug in Twig::Friend.timeline
+</pre>
+<h2>0.3.2</h2>
+<p>
+Divide <a href="../classes/Twig/Friend.html">Twig::Friend</a> into Friend
+and FriendBox
+</p>
+<pre>
+ * Still need to fix Twig::Friend.timeline
+</pre>
+<h2>0.3.1</h2>
+<p>
+Fix bugs in the <a href="../classes/Twig/Friend.html">Twig::Friend</a>
+class
+</p>
+<pre>
+ * Need to fix output for Twig::Friend.timeline
+ * Need to add options to Twig::Friend.timeline
+</pre>
+<h2>0.3.0</h2>
+<p>
+Add <a href="../classes/Twig/Friend.html">Twig::Friend</a> class
+</p>
+<pre>
+ * Full functionality for finding, adding, removing friends.
+</pre>
+<h2>0.2.1</h2>
+<p>
+Move top-level methods into categorically-arranged modules
+</p>
+<pre>
+ * Rename from Twirp to Twig
+ * Recognize that Twig is the MVC Model for client Twirp
+ * Add user.switch method that should go in the Twirp class
+</pre>
+<h2>0.2.0</h2>
+<p>
+Vast reorganization of methods in Twirp class
+</p>
+<pre>
+ * Make Twirp class more selective with Client calls
+</pre>
+<h2>0.1.2</h2>
+<p>
+Reorganize Twirp Class
+</p>
+<pre>
+ * Add sent and received methods
+</pre>
+<h2>0.1.1</h2>
+<p>
+Get Twirp class actively working
+</p>
+<pre>
+ * Add inbox and outbox methods in the Twirp class
+</pre>
+<h2>0.1.0</h2>
+<p>
+Add favorite/unfavorite functions to Twirp::Status
+</p>
+<h2>0.0.4</h2>
+<p>
+Twirp::Status has cleaner code
+</p>
+<pre>
+ * Unable to create Status objects using current internet connection
+ * Error may be due to local internet
+</pre>
+<h2>0.0.3</h2>
+<p>
+Twirp::Status able to get, delete active status
+</p>
+<h2>0.0.2</h2>
+<p>
+Add Twirp::Status Class
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

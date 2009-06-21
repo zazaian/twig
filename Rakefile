@@ -6,6 +6,7 @@ require 'twig'
 
 Hoe.new('twig', Twig::VERSION.pretty) do |p|
   p.developer 'Mike Zazaian', 'zazaian@gmail.com'
+  p.url = "http://twig-twitter.rubyforge.org"
 
   d = "An intelligent wrapper for the Twitter4r gem."
   p.description = d

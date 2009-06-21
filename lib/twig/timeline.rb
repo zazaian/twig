@@ -19,6 +19,7 @@ class Twig::Timelines
       @mine = Twig::Timeline::Mine.new(@client)
     end
   end
+  alias_method :my, :mine
 
   def friends(action=nil)
     if @friends
@@ -105,6 +106,8 @@ class Twig::Timeline
       @statuses = fill
     end
   end
+  alias_method :print, :statuses
+  alias_method :all, :statuses
 
   
   def sort_by(ivar, opts={})
@@ -132,8 +135,8 @@ class Twig::Timeline
     else
       output = statuses.sort do |x,y|
         if stat_vars[ivar]
-          y.instance_variable_get(msg_vars[ivar]) <=> \
-            x.instance_variable_get(msg_vars[ivar])
+          y.instance_variable_get(stat_vars[ivar]) <=> \
+            x.instance_variable_get(stat_vars[ivar])
         else
           y.user.instance_variable_get(user_vars[ivar]) <=> \
             x.user.instance_variable_get(user_vars[ivar])

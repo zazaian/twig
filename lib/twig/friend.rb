@@ -127,10 +127,7 @@ class Twig::FriendBox
   def screen_name(name)
     find :screen_name => name
   end
-
-  def sn(name)
-    screen_name(name)
-  end
+  alias_method :sn, :screen_name
 
   def id(num)
     find :id => num
