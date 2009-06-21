@@ -1,4 +1,8 @@
 
+==0.5.4
+* 1 Major Improvement
+ * Add find() function for Users Class
+
 == 0.5.3
 * 3 Minor Improvement
  * Create Twig::User Class

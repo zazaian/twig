@@ -34,6 +34,7 @@ class Twig::My
       @favorites = @client.favorites
     end
   end
+  alias_method :favs, :favorites
 
   def followers(action=nil)
     if @followers
