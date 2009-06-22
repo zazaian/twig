@@ -87,7 +87,7 @@ class Twig::FriendBox
           end
         elsif screen_name
           friends.each do |f|
-            if f.info.screen_name == screen_name
+            if f.info.screen_name.downcase == screen_name.downcase
               output = f
               break
             end
@@ -152,9 +152,11 @@ class Twig::Friend
     @info = info
   end
 
-  def toggle
+  def is_friend
     @is_friend = @is_friend ? false : true
   end
+  protected :is_friend
+  alias_method :toggle, :is_friend
 
   def is_friend?
     @is_friend
@@ -164,7 +166,9 @@ class Twig::Friend
     if text.size <= 140
       @client.message(:post, text, @info)
     else
-      raise ArgumentError, "Direct Messages (DMs) must be no longer than 140 characters."
+      raise ArgumentError, "Direct Messages (DMs) must be no longer than 140 characters.  " \ 
+                         + "Please trim #{text.size - 140} characters from your message " \
+                         + "and try again."
     end
   end
 
@@ -228,10 +232,7 @@ module Twig::Friend::Methods
       @friend_box = Twig::FriendBox.new(@client)
     end
   end
-
-  def friends(action=nil)
-    friend_box(action)
-  end
+  alias_method :friends, :friend_box
 
   def friend(action=nil)
     case action 

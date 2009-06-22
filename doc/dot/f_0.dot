@@ -59,13 +59,23 @@ digraph TopLevel {
 
     ]
 
-    Twig__User [
+    Twig__My__Methods [
         shape = box,
-        URL = "classes/Twig/User.html",
-        label = "Twig::User"
+        URL = "classes/Twig/My/Methods.html",
+        label = "Twig::My::Methods"
     ]
 
-    Twig__User -> Twig [
+    Twig__My__Methods -> Twig [
+
+    ]
+
+    Twig__Users__Methods [
+        shape = box,
+        URL = "classes/Twig/Users/Methods.html",
+        label = "Twig::Users::Methods"
+    ]
+
+    Twig__Users__Methods -> Twig [
 
     ]
 

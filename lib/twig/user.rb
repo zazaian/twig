@@ -10,10 +10,8 @@ class Twig::Users
       # Find the first object sorted by id
       fetched[fetched.sort {|a,b| a[1] <=> b[1]}[0][0]]
     else
-      output = nil
+      nil
     end
-
-    return output
   end 
 
   def fetched(action=nil)
@@ -66,8 +64,8 @@ class Twig::Users
         end
 
         if match
-          active = match
-          output = active
+          @active = match
+          output = @active
         else
           user_check = @client.user(id_sn)
           if user_check

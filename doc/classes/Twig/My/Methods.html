@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Class: Twig::My::Methods</title>
+  <title>Module: Twig::My::Methods</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
@@ -49,25 +49,19 @@
     <div id="classHeader">
         <table class="header-table">
         <tr class="top-aligned-row">
-          <td><strong>Class</strong></td>
+          <td><strong>Module</strong></td>
           <td class="class-name-in-header">Twig::My::Methods</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
-                <a href="../../../files/lib/twig/user_rb.html">
-                lib/twig/user.rb
+                <a href="../../../files/lib/twig/my_rb.html">
+                lib/twig/my.rb
                 </a>
         <br />
             </td>
         </tr>
 
-        <tr class="top-aligned-row">
-            <td><strong>Parent:</strong></td>
-            <td>
-                Object
-            </td>
-        </tr>
         </table>
     </div>
   <!-- banner header -->
@@ -79,12 +73,13 @@
   <div id="contextContent">
     <div id="diagram">
       <map id="map" name="map">
-  <area shape="rect" coords="356,102,428,150"      href="../../Twig.html" alt="Twig" />
+  <area shape="rect" coords="435,102,507,150"      href="../../Twig.html" alt="Twig" />
   <area shape="rect" coords="5,6,133,54"      href="../Status/Methods.html" alt="Twig::Status::Methods" />
   <area shape="rect" coords="157,6,304,54"      href="../Messages/Methods.html" alt="Twig::Messages::Methods" />
   <area shape="rect" coords="328,6,456,54"      href="../Friend/Methods.html" alt="Twig::Friend::Methods" />
   <area shape="rect" coords="480,6,621,54"      href="../Timelines/Methods.html" alt="Twig::Timelines::Methods" />
-  <area shape="rect" coords="645,6,720,54"      href="../User.html" alt="Twig::User" />
+  <area shape="rect" coords="645,6,757,54"      href="Methods.html" alt="Twig::My::Methods" />
+  <area shape="rect" coords="781,6,909,54"      href="../Users/Methods.html" alt="Twig::Users::Methods" />
 </map>
 <img src="../../../dot/f_0.png" usemap="#map" border="0" alt="dot/f_0.png">
     </div>
@@ -93,6 +88,18 @@
 
    </div>
 
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000023">favorites</a>&nbsp;&nbsp;
+      <a href="#M000024">favs</a>&nbsp;&nbsp;
+      <a href="#M000025">followers</a>&nbsp;&nbsp;
+      <a href="#M000022">info</a>&nbsp;&nbsp;
+      <a href="#M000021">my</a>&nbsp;&nbsp;
+      <a href="#M000026">timeline</a>&nbsp;&nbsp;
+      </div>
+    </div>
 
   </div>
 
@@ -105,10 +112,168 @@
 
 
 
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">my</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
       
 
 
     <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
+          <span class="method-name">favorites</span><span class="method-args">(action=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/my.rb, line 76</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">favorites</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">my</span>.<span class="ruby-identifier">favorites</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <span class="method-name">favs</span><span class="method-args">(action=nil)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Methods.html#M000023">favorites</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="#M000025" class="method-signature">
+          <span class="method-name">followers</span><span class="method-args">(action=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000025-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000025-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/my.rb, line 81</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">followers</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">my</span>.<span class="ruby-identifier">followers</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="#M000022" class="method-signature">
+          <span class="method-name">info</span><span class="method-args">(action=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000022-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/my.rb, line 72</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">info</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">my</span>.<span class="ruby-identifier">info</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="#M000021" class="method-signature">
+          <span class="method-name">my</span><span class="method-args">(action=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000021-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/my.rb, line 57</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">my</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@my</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>
+        <span class="ruby-ivar">@my</span> = <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">My</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@my</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-ivar">@my</span> = <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">My</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>)
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="#M000026" class="method-signature">
+          <span class="method-name">timeline</span><span class="method-args">(action=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000026-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/my.rb, line 85</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">timeline</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-identifier">timelines</span>.<span class="ruby-identifier">mine</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">action</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
 
 
   </div>

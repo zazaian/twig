@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Module: Twig::User</title>
+  <title>Class: Twig::User</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
@@ -49,7 +49,7 @@
     <div id="classHeader">
         <table class="header-table">
         <tr class="top-aligned-row">
-          <td><strong>Module</strong></td>
+          <td><strong>Class</strong></td>
           <td class="class-name-in-header">Twig::User</td>
         </tr>
         <tr class="top-aligned-row">
@@ -62,6 +62,12 @@
             </td>
         </tr>
 
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
         </table>
     </div>
   <!-- banner header -->
@@ -73,12 +79,13 @@
   <div id="contextContent">
     <div id="diagram">
       <map id="map" name="map">
-  <area shape="rect" coords="356,102,428,150"      href="../Twig.html" alt="Twig" />
+  <area shape="rect" coords="435,102,507,150"      href="../Twig.html" alt="Twig" />
   <area shape="rect" coords="5,6,133,54"      href="Status/Methods.html" alt="Twig::Status::Methods" />
   <area shape="rect" coords="157,6,304,54"      href="Messages/Methods.html" alt="Twig::Messages::Methods" />
   <area shape="rect" coords="328,6,456,54"      href="Friend/Methods.html" alt="Twig::Friend::Methods" />
   <area shape="rect" coords="480,6,621,54"      href="Timelines/Methods.html" alt="Twig::Timelines::Methods" />
-  <area shape="rect" coords="645,6,720,54"      href="User.html" alt="Twig::User" />
+  <area shape="rect" coords="645,6,757,54"      href="My/Methods.html" alt="Twig::My::Methods" />
+  <area shape="rect" coords="781,6,909,54"      href="Users/Methods.html" alt="Twig::Users::Methods" />
 </map>
 <img src="../../dot/f_0.png" usemap="#map" border="0" alt="dot/f_0.png">
     </div>
@@ -91,9 +98,12 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000004">favorites</a>&nbsp;&nbsp;
-      <a href="#M000005">followers</a>&nbsp;&nbsp;
-      <a href="#M000003">info</a>&nbsp;&nbsp;
+      <a href="#M000031">befriend</a>&nbsp;&nbsp;
+      <a href="#M000032">defriend</a>&nbsp;&nbsp;
+      <a href="#M000030">message</a>&nbsp;&nbsp;
+      <a href="#M000027">new</a>&nbsp;&nbsp;
+      <a href="#M000029">status</a>&nbsp;&nbsp;
+      <a href="#M000028">timeline</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -114,18 +124,18 @@
       <div class="name-list">
         <table>
         <tr class="top-aligned-row context-row">
-          <td class="context-item-name">favorites</td>
-          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
-          <td class="context-item-desc"></td>
-        </tr>
-        <tr class="top-aligned-row context-row">
-          <td class="context-item-name">followers</td>
-          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-name">client</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
         <tr class="top-aligned-row context-row">
           <td class="context-item-name">info</td>
-          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">timeline</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
         </table>
@@ -136,35 +146,101 @@
 
     <!-- if method_list -->
     <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="#M000027" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(client, user)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000027-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000027-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 110</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
+    <span class="ruby-ivar">@info</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000004" class="method-detail">
-        <a name="M000004"></a>
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
 
         <div class="method-heading">
-          <a href="#M000004" class="method-signature">
-          <span class="method-name">favorites</span><span class="method-args">(action=nil)</span>
+          <a href="#M000031" class="method-signature">
+          <span class="method-name">befriend</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000004-source">
+            onclick="toggleCode('M000031-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000031-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/user.rb, line 29</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">favorites</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@favorites</span>
-      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
-      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>
-        <span class="ruby-ivar">@favorites</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">favorites</span>
-      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
-        <span class="ruby-ivar">@favorites</span>
-      <span class="ruby-keyword kw">else</span>
-        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @favorites.&quot;</span>
-      <span class="ruby-keyword kw">end</span>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 143</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">befriend</span>
+    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:add</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
+
+        <div class="method-heading">
+          <a href="#M000032" class="method-signature">
+          <span class="method-name">defriend</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000032-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000032-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 147</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">defriend</span>
+    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:remove</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="#M000030" class="method-signature">
+          <span class="method-name">message</span><span class="method-args">(text)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000030-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000030-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 134</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">message</span>(<span class="ruby-identifier">text</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">140</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Message cannot be longer than 140 characters.  Please trim &quot;</span> \
+                         <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{text.size - 140} characters from the message and try again.&quot;</span>
     <span class="ruby-keyword kw">else</span>
-      <span class="ruby-ivar">@favorites</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">favorites</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">text</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
     <span class="ruby-keyword kw">end</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
@@ -172,67 +248,56 @@
         </div>
       </div>
 
-      <div id="method-M000005" class="method-detail">
-        <a name="M000005"></a>
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
 
         <div class="method-heading">
-          <a href="#M000005" class="method-signature">
-          <span class="method-name">followers</span><span class="method-args">(action=nil)</span>
+          <a href="#M000029" class="method-signature">
+          <span class="method-name">status</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000005-source">
+            onclick="toggleCode('M000029-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000029-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/user.rb, line 44</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">followers</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@followers</span>
-      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
-      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>
-        <span class="ruby-ivar">@followers</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">my</span>(<span class="ruby-identifier">:followers</span>)
-      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
-        <span class="ruby-ivar">@followers</span>
-      <span class="ruby-keyword kw">else</span>
-        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @followers.&quot;</span>
-      <span class="ruby-keyword kw">end</span>
-    <span class="ruby-keyword kw">else</span>
-      <span class="ruby-ivar">@followers</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">my</span>(<span class="ruby-identifier">:followers</span>)
-    <span class="ruby-keyword kw">end</span>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 130</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">status</span>
+    <span class="ruby-identifier">timeline</span>[<span class="ruby-value">0</span>]
   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000003" class="method-detail">
-        <a name="M000003"></a>
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
 
         <div class="method-heading">
-          <a href="#M000003" class="method-signature">
-          <span class="method-name">info</span><span class="method-args">(action=nil)</span>
+          <a href="#M000028" class="method-signature">
+          <span class="method-name">timeline</span><span class="method-args">(action=nil)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000003-source">
+            onclick="toggleCode('M000028-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000028-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/user.rb, line 14</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">info</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@info</span>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 115</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">timeline</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@timeline</span>
       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>
-        <span class="ruby-ivar">@info</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">my</span>(<span class="ruby-identifier">:info</span>)
+        <span class="ruby-ivar">@timeline</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">timeline_for</span>(<span class="ruby-identifier">:user</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
       <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
-        <span class="ruby-ivar">@info</span>
+        <span class="ruby-ivar">@timeline</span>
       <span class="ruby-keyword kw">else</span>
-        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @info.&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @timeline.&quot;</span>
       <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">else</span>
-      <span class="ruby-ivar">@info</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">my</span>(<span class="ruby-identifier">:info</span>)
+      <span class="ruby-ivar">@timeline</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">timeline_for</span>(<span class="ruby-identifier">:user</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
     <span class="ruby-keyword kw">end</span>
   <span class="ruby-keyword kw">end</span>
 </pre>

@@ -137,18 +137,6 @@ class Twig::Timeline::Mine < Twig::Timeline
   end
 end
 
-class Twig::Timeline::User < Twig::Timeline
-  attr_reader :client, :user, :statuses
-  def initialize(client, user)
-    @client = client
-    @user = user
-  end
-  
-  def fill
-    @client.timeline_for(:user, @user.id)
-  end
-end
-
 module Twig::Timelines::Methods
   attr_reader :timelines
   def timelines(action=nil)
