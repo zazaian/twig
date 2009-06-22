@@ -6,6 +6,10 @@ class Twig::FriendBox
     @active = first
   end
 
+  def each(&block)
+    all.each(&block)
+  end
+
   def active(action=nil)
     if @active
       case action

@@ -143,23 +143,25 @@ class Twig::User
   def befriend
     result = @client.friend(:add, @info)
     if result
-      self.toggle
       output = result
     else
       output = nil
       raise "Unable to befriend user '#{@info.screen_name}'"
     end
+
+    return output
   end
 
   def defriend
     result = @client.friend(:remove, @info)
     if result
-      self.toggle
       output = result
     else
       output = nil
       raise "Unable to defriend user '#{@info.screen_name}'"
     end
+
+    return output
   end
 end
 

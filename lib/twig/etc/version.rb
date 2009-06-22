@@ -2,7 +2,7 @@
 module Twig::VERSION #:nodoc:
   MAJOR = 0
   MINOR = 5
-  TINY = 8
+  TINY = 9
   
   class << self
     # Returns X.Y.Z formatted version string

@@ -1,4 +1,8 @@
 
+== 0.5.9
+* 1 Bug Fix
+ * Fixed bug in User.befriend
+
 == 0.5.8
 * 3 Minor Improvements
  * Twig.user calls Twig::Users.active if no argument
