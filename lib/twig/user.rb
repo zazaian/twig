@@ -141,11 +141,25 @@ class Twig::User
   end
 
   def befriend
-    @client.friend(:add, @info.id)
+    result = @client.friend(:add, @info)
+    if result
+      self.toggle
+      output = result
+    else
+      output = nil
+      raise "Unable to befriend user '#{@info.screen_name}'"
+    end
   end
 
   def defriend
-    @client.friend(:remove, @info.id)
+    result = @client.friend(:remove, @info)
+    if result
+      self.toggle
+      output = result
+    else
+      output = nil
+      raise "Unable to defriend user '#{@info.screen_name}'"
+    end
   end
 end
 
@@ -167,7 +181,12 @@ module Twig::Users::Methods
     end
   end
 
-  def user(id_sn)
-    users.find(id_sn)
+  def user(id_sn=nil)
+    case id_sn
+    when nil
+      users.active
+    else
+      users.find(id_sn)
+    end
   end
 end

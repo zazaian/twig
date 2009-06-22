@@ -146,29 +146,30 @@ end
 
 
 class Twig::Friend
-  attr_accessor :client, :info, :timeline, :is_friend
+  attr_accessor :client, :info, :timeline, :friended
   def initialize(client, info)
     @client = client
     @info = info
+    @friended = true
   end
 
-  def is_friend
-    @is_friend = @is_friend ? false : true
+  def toggle_friend
+    @friended = @friended ? false : true
   end
-  protected :is_friend
-  alias_method :toggle, :is_friend
+  protected :toggle_friend, :friended
+  alias_method :toggle, :toggle_friend
 
   def is_friend?
-    @is_friend
+    @friended
   end
 
   def message(text)
     if text.size <= 140
       @client.message(:post, text, @info)
     else
-      raise ArgumentError, "Direct Messages (DMs) must be no longer than 140 characters.  " \ 
-                         + "Please trim #{text.size - 140} characters from your message " \
-                         + "and try again."
+      raise ArgumentError, "Direct Messages (DMs) must be no longer than 140 characters.  " +
+                           "Please trim #{text.size - 140} characters from your message " +
+                           "and try again."
     end
   end
 
@@ -188,9 +189,15 @@ class Twig::Friend
   end
 
   def befriend(id=nil)
-    if ! @is_friend
-      output = @info.befriend
-      is_friend
+    if ! @friended
+      result = @client.friend(:add, @info.id)
+      if result
+        self.toggle
+        output = result
+      else
+        output = nil
+        raise "Unable to befriend user '#{@info.screen_name}'"
+      end
     else
       output = nil
       raise ArgumentError, "'#{@info.screen_name}' is already your friend."
@@ -199,11 +206,16 @@ class Twig::Friend
     return output
   end
 
-
   def defriend(id=nil)
-    if @is_friend
-      output = @info.defriend
-      is_friend
+    if @friended
+      result = @client.friend(:remove, @info.id)
+      if result
+        self.toggle
+        output = result
+      else
+        output = nil
+        raise "Unable to defriend user '#{@info.screen_name}'"
+      end
     else
       output = nil
       raise ArgumentError, "'#{@info.screen_name}' is not currently your friend."

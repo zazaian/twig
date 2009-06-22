@@ -1,4 +1,14 @@
 
+== 0.5.8
+* 3 Minor Improvements
+ * Twig.user calls Twig::Users.active if no argument
+ * Ensure befriend is successful in Twig::User.befriend
+ * Ensure defriend is successful in Twig::User.defriend
+
+* 2 Bug Fixes
+ * Fix Twig::Friend.befriend
+ * Fix Twig::Friend.defriend
+
 == 0.5.7
 * 2 Minor Improvement
  * Protect Friend::is_friend()
