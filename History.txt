@@ -1,4 +1,12 @@
 
+== 0.5.10
+* 4 Minor Improvements
+ * Add documentation to friend.rb and message_box.rb
+ * Improve forward_to functions in Twig::Message
+ * Add aliases for Twig::Messages::Box sort_by()
+ * Add :sync and :refresh as aliases for :update
+   in friend.rb and message_box.rb
+
 == 0.5.9
 * 1 Bug Fix
  * Fixed bug in User.befriend

@@ -144,18 +144,38 @@
         </div>
       
         <div class="method-description">
+          <p>
+Returns a SINGLE <a href="../Friend.html">Twig::Friend</a> object from the
+<a href="../FriendBox.html">Twig::FriendBox</a> Array.
+</p>
+<p>
+If <em>action</em> is a <a href="Methods.html#M000107">friend</a>&#8216;s
+user id # (Fixnum) or a screen name (String), the corresponding user will
+be searched for in the <a href="../FriendBox.html">Twig::FriendBox</a>
+Array. If the <a href="../Friend.html">Twig::Friend</a> object is found, it
+will be returned, otherwise <em>nil</em> will be returned and an error will
+be raised.
+</p>
+<p>
+If <em>action</em> is :active, or left empty, <em><a
+href="Methods.html#M000107">friend</a></em> will return the ACTIVE <a
+href="../Friend.html">Twig::Friend</a> object in <a
+href="../FriendBox.html#M000043">Twig::FriendBox.active</a>. If no <a
+href="../Friend.html">Twig::Friend</a> has been made active, <em>nil</em>
+will be returned.
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000107-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000107-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 236</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 381</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">friend</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span> 
     <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Fixnum</span>
       <span class="ruby-identifier">friend_box</span>.<span class="ruby-identifier">id</span>(<span class="ruby-identifier">action</span>)
     <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span>
       <span class="ruby-identifier">friend_box</span>.<span class="ruby-identifier">sn</span>(<span class="ruby-identifier">action</span>)
-    <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">:active</span>
       <span class="ruby-identifier">friend_box</span>.<span class="ruby-identifier">active</span>
     <span class="ruby-keyword kw">end</span>
   <span class="ruby-keyword kw">end</span>
@@ -174,17 +194,28 @@
         </div>
       
         <div class="method-description">
+          <p>
+Provides access to the <a href="../FriendBox.html">Twig::FriendBox</a>
+object and its methods.
+</p>
+<p>
+When <em>action</em> is :update, :sync, or :refresh, calling <a
+href="Methods.html#M000105">friend_box</a> fetches all <a
+href="Methods.html#M000106">friends</a> from the Twitter server and
+refreshes the <a href="../FriendBox.html">Twig::FriendBox</a> Array with
+your <a href="../Friend.html">Twig::Friend</a> objects.
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000105-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000105-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 215</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 352</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">friend_box</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@friend_box</span>
       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
       <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:create</span>
         <span class="ruby-ivar">@friend_box</span> = <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">FriendBox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>)
-      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>, <span class="ruby-identifier">:sync</span>, <span class="ruby-identifier">:refresh</span>
         <span class="ruby-ivar">@friend_box</span>.<span class="ruby-identifier">all</span> <span class="ruby-identifier">:update</span>
       <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
         <span class="ruby-ivar">@friend_box</span>
@@ -204,22 +235,13 @@
         <a name="M000106"></a>
 
         <div class="method-heading">
-          <a href="#M000106" class="method-signature">
           <span class="method-name">friends</span><span class="method-args">(action=nil)</span>
-          </a>
         </div>
       
         <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000106-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000106-source">
-<pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 232</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">friends</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-identifier">friend_box</span>(<span class="ruby-identifier">action</span>)
-  <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
+          <p>
+Alias for <a href="Methods.html#M000105">friend_box</a>
+</p>
         </div>
       </div>
 

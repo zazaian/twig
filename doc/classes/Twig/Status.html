@@ -226,7 +226,7 @@
             onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000012-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/status.rb, line 83</span>
+<span class="ruby-comment cmt"># File lib/twig/status.rb, line 81</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">id</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-identifier">get_delete</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:delete</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>
   <span class="ruby-keyword kw">end</span>
@@ -245,14 +245,11 @@
         </div>
       
         <div class="method-description">
-          <p>
-Add and remove favorites
-</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000007-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/status.rb, line 39</span>
+<span class="ruby-comment cmt"># File lib/twig/status.rb, line 38</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fav</span>(<span class="ruby-identifier">id</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-identifier">favorite</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-keyword kw">end</span>
@@ -275,7 +272,7 @@ Add and remove favorites
             onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000009-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/status.rb, line 47</span>
+<span class="ruby-comment cmt"># File lib/twig/status.rb, line 46</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">favorite</span>(<span class="ruby-identifier">id</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-identifier">f</span> = <span class="ruby-identifier">id</span> <span class="ruby-value">? </span><span class="ruby-identifier">get</span>(<span class="ruby-identifier">id</span>) <span class="ruby-operator">:</span> <span class="ruby-ivar">@active</span>
 
@@ -305,14 +302,11 @@ Add and remove favorites
         </div>
       
         <div class="method-description">
-          <p>
-end favorites
-</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000011-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/status.rb, line 79</span>
+<span class="ruby-comment cmt"># File lib/twig/status.rb, line 77</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">id</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-identifier">get_delete</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:get</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">id</span>
   <span class="ruby-keyword kw">end</span>
@@ -364,7 +358,7 @@ end favorites
             onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000008-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/status.rb, line 43</span>
+<span class="ruby-comment cmt"># File lib/twig/status.rb, line 42</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unfav</span>(<span class="ruby-identifier">id</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-identifier">unfavorite</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-keyword kw">end</span>
@@ -387,7 +381,7 @@ end favorites
             onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000010-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/status.rb, line 62</span>
+<span class="ruby-comment cmt"># File lib/twig/status.rb, line 61</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unfavorite</span>(<span class="ruby-identifier">id</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-identifier">f</span> = <span class="ruby-identifier">id</span> <span class="ruby-value">? </span><span class="ruby-identifier">get</span>(<span class="ruby-identifier">id</span>) <span class="ruby-operator">:</span> <span class="ruby-ivar">@active</span>
 

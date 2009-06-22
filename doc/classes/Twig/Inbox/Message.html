@@ -100,8 +100,8 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000087">forward_to</a>&nbsp;&nbsp;
-      <a href="#M000086">reply</a>&nbsp;&nbsp;
+      <a href="#M000086">forward_to</a>&nbsp;&nbsp;
+      <a href="#M000085">reply</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -123,54 +123,98 @@
     <div id="methods">
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000087" class="method-detail">
-        <a name="M000087"></a>
+      <div id="method-M000086" class="method-detail">
+        <a name="M000086"></a>
 
         <div class="method-heading">
-          <a href="#M000087" class="method-signature">
+          <a href="#M000086" class="method-signature">
           <span class="method-name">forward_to</span><span class="method-args">(id_sn, preface=true)</span>
           </a>
         </div>
       
         <div class="method-description">
+          <p>
+Forwards the selected <a href="../Message.html">Twig::Message</a> to a user
+with screen name (String) or id # (Fixnum) <em>id_sn</em>. Returns the <a
+href="../Message.html">Twig::Message</a> object if sent successfully.
+</p>
+<p>
+If <em>preface</em> is set to <em>true</em> (default), it will prepend the
+message with the words &#8216;<em>sender_screen_name</em> said:&#8217;. If
+<em>preface</em> is false, no preface will be prepended to the message.
+</p>
+<p>
+If the message (plus the preface) is greater than 140 characters,
+<em>nil</em> is returned and an error is raised.
+</p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000087-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000087-source">
+            onclick="toggleCode('M000086-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000086-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/message/message_box.rb, line 164</span>
+<span class="ruby-comment cmt"># File lib/twig/message/message_box.rb, line 279</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forward_to</span>(<span class="ruby-identifier">id_sn</span>, <span class="ruby-identifier">preface</span>=<span class="ruby-keyword kw">true</span>)
-    <span class="ruby-identifier">user</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">user</span>(<span class="ruby-identifier">id_sn</span>)
+    
+    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">id_sn</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Fixnum</span>, <span class="ruby-constant">String</span>
+      <span class="ruby-identifier">user</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">user</span>(<span class="ruby-identifier">id_sn</span>)
+    <span class="ruby-keyword kw">end</span>
+
     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">user</span>
     <span class="ruby-identifier">text</span> = <span class="ruby-identifier">preface</span> <span class="ruby-value">? </span><span class="ruby-node">&quot;#{@info.sender.screen_name} wrote: '#{@info.text}'&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">text</span>
       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">140</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
         <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Message '#{text}' is longer than 140 characters.&quot;</span>
       <span class="ruby-keyword kw">else</span>
-        <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>)
+        <span class="ruby-identifier">output</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">id_sn</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Fixnum</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Could not find Twig::User id #{id_sn}.&quot;</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Could not find Twig::User '#{id_sn}'.&quot;</span>
       <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000086" class="method-detail">
-        <a name="M000086"></a>
+      <div id="method-M000085" class="method-detail">
+        <a name="M000085"></a>
 
         <div class="method-heading">
-          <a href="#M000086" class="method-signature">
+          <a href="#M000085" class="method-signature">
           <span class="method-name">reply</span><span class="method-args">(text)</span>
           </a>
         </div>
       
         <div class="method-description">
+          <p>
+Sends a <a href="Message.html#M000085">reply</a> to the sender of the
+original message.
+</p>
+<p>
+Raises an error if <em>text</em> is greater than 140 characters.
+</p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000086-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000086-source">
+            onclick="toggleCode('M000085-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000085-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/message/message_box.rb, line 160</span>
+<span class="ruby-comment cmt"># File lib/twig/message/message_box.rb, line 259</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reply</span>(<span class="ruby-identifier">text</span>)
-    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">text</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">sender</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">140</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">text</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">sender</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Direct Messages (DMs) must be no longer than 140 characters.  &quot;</span> <span class="ruby-operator">+</span>
+                           <span class="ruby-node">&quot;Please trim #{text.size - 140} characters from your message &quot;</span> <span class="ruby-operator">+</span>
+                           <span class="ruby-value str">&quot;and try again.&quot;</span>
+    <span class="ruby-keyword kw">end</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>

@@ -102,9 +102,10 @@
       <a href="#M000104">defriend</a>&nbsp;&nbsp;
       <a href="#M000100">is_friend?</a>&nbsp;&nbsp;
       <a href="#M000101">message</a>&nbsp;&nbsp;
-      <a href="#M000098">new</a>&nbsp;&nbsp;
+      <a href="#M000097">new</a>&nbsp;&nbsp;
       <a href="#M000102">timeline</a>&nbsp;&nbsp;
       <a href="#M000099">toggle</a>&nbsp;&nbsp;
+      <a href="#M000098">toggle_friend</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -136,12 +137,12 @@
           <td class="context-item-desc"></td>
         </tr>
         <tr class="top-aligned-row context-row">
-          <td class="context-item-name">info</td>
+          <td class="context-item-name">friended</td>
           <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
         <tr class="top-aligned-row context-row">
-          <td class="context-item-name">is_friend</td>
+          <td class="context-item-name">info</td>
           <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
@@ -160,24 +161,25 @@
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000098" class="method-detail">
-        <a name="M000098"></a>
+      <div id="method-M000097" class="method-detail">
+        <a name="M000097"></a>
 
         <div class="method-heading">
-          <a href="#M000098" class="method-signature">
+          <a href="#M000097" class="method-signature">
           <span class="method-name">new</span><span class="method-args">(client, info)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000098-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000098-source">
+            onclick="toggleCode('M000097-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000097-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 150</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 232</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">info</span>)
     <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
     <span class="ruby-ivar">@info</span> = <span class="ruby-identifier">info</span>
+    <span class="ruby-ivar">@friended</span> = <span class="ruby-keyword kw">true</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
@@ -196,15 +198,30 @@
         </div>
       
         <div class="method-description">
+          <p>
+Sets the <a href="Friend.html">Twig::Friend</a> user as a friend on the
+Twitter server, and toggles the @friended variable to <em>true</em>.
+</p>
+<p>
+If the <a href="Friend.html">Twig::Friend</a> user is already set as a
+friend, or if <a href="../Twig.html">Twig</a> can&#8216;t properly set the
+user as a friend on the Twitter server, an error will be raised.
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000103-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000103-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 186</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 299</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">befriend</span>(<span class="ruby-identifier">id</span>=<span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span> <span class="ruby-ivar">@is_friend</span>
-      <span class="ruby-identifier">output</span> = <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">befriend</span>
-      <span class="ruby-identifier">is_friend</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span> <span class="ruby-ivar">@friended</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:add</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">toggle</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-identifier">result</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unable to befriend user '#{@info.screen_name}'&quot;</span>
+      <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">else</span>
       <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;'#{@info.screen_name}' is already your friend.&quot;</span>
@@ -227,15 +244,30 @@
         </div>
       
         <div class="method-description">
+          <p>
+Removes the <a href="Friend.html">Twig::Friend</a> user as a friend on the
+Twitter server, and toggles the @friended variable to <em>false</em>.
+</p>
+<p>
+If the <a href="Friend.html">Twig::Friend</a> user not already set as a
+friend, or if <a href="../Twig.html">Twig</a> can&#8216;t properly remove
+the user as a friend on the Twitter server, an error will be raised.
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000104-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000104-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 199</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 323</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">defriend</span>(<span class="ruby-identifier">id</span>=<span class="ruby-keyword kw">nil</span>)
-    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@is_friend</span>
-      <span class="ruby-identifier">output</span> = <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">defriend</span>
-      <span class="ruby-identifier">is_friend</span>
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@friended</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:remove</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>
+        <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">toggle</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-identifier">result</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unable to defriend user '#{@info.screen_name}'&quot;</span>
+      <span class="ruby-keyword kw">end</span>
     <span class="ruby-keyword kw">else</span>
       <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;'#{@info.screen_name}' is not currently your friend.&quot;</span>
@@ -258,13 +290,26 @@
         </div>
       
         <div class="method-description">
+          <p>
+Returns whether or not the <a href="Friend.html">Twig::Friend</a> object is
+registered as a friend on the Twitter server: <em>true</em> or
+<em>false</em>
+</p>
+<p>
+<a href="../Twig.html">Twig</a> does not contact the server to get this
+data. Instead, the @friended boolean is set to <em>true</em> when the <a
+href="Friend.html">Twig::Friend</a> object is created, and is toggled
+between <em>true</em> and <em>false</em> if the <a
+href="Friend.html#M000103">Twig::Friend.befriend</a> and <a
+href="Friend.html#M000104">Twig::Friend.defriend</a> methods are called.
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000100-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000100-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 159</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 252</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">is_friend?</span>
-    <span class="ruby-ivar">@is_friend</span>
+    <span class="ruby-ivar">@friended</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
@@ -281,16 +326,24 @@
         </div>
       
         <div class="method-description">
+          <p>
+Sends a <a href="Friend.html#M000101">message</a> to a <a
+href="Friend.html">Twig::Friend</a> user. <em>text</em> of the <a
+href="Friend.html#M000101">message</a> must be no more than 140 characters
+or an <em>ArgumentError</em> will be raised.
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000101-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000101-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 163</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 259</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">message</span>(<span class="ruby-identifier">text</span>)
     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">140</span>
       <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">text</span>, <span class="ruby-ivar">@info</span>)
     <span class="ruby-keyword kw">else</span>
-      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Direct Messages (DMs) must be no longer than 140 characters.&quot;</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Direct Messages (DMs) must be no longer than 140 characters.  &quot;</span> <span class="ruby-operator">+</span>
+                           <span class="ruby-node">&quot;Please trim #{text.size - 140} characters from your message &quot;</span> <span class="ruby-operator">+</span>
+                           <span class="ruby-value str">&quot;and try again.&quot;</span>
     <span class="ruby-keyword kw">end</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
@@ -308,15 +361,30 @@
         </div>
       
         <div class="method-description">
+          <p>
+Returns an array of all recent status objects for the <a
+href="Friend.html">Twig::Friend</a> user.
+</p>
+<p>
+If the <a href="Friend.html#M000102">timeline</a> hasn&#8216;t been fetched
+yet for the <a href="Friend.html">Twig::Friend</a> user, it will be fetched
+from the server, otherwise, the array will be called from the @<a
+href="Friend.html#M000102">timeline</a> variable.
+</p>
+<p>
+The <a href="Friend.html#M000102">timeline</a> can be refreshed from the
+server by calling <a href="Friend.html#M000102">timeline</a> with the
+:update, :refresh or :sync Symbols for <em>action</em>.
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000102-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000102-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 171</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 278</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">timeline</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@timeline</span>
       <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
-      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>, <span class="ruby-identifier">:refresh</span>, <span class="ruby-identifier">:sync</span>
         <span class="ruby-ivar">@timeline</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">timeline_for</span>(<span class="ruby-identifier">:user</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>)
       <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
         <span class="ruby-ivar">@timeline</span>
@@ -336,19 +404,35 @@
         <a name="M000099"></a>
 
         <div class="method-heading">
-          <a href="#M000099" class="method-signature">
           <span class="method-name">toggle</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Friend.html#M000098">toggle_friend</a>
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
+
+        <div class="method-heading">
+          <a href="#M000098" class="method-signature">
+          <span class="method-name">toggle_friend</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000099-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000099-source">
+            onclick="toggleCode('M000098-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000098-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 155</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">toggle</span>
-    <span class="ruby-ivar">@is_friend</span> = <span class="ruby-ivar">@is_friend</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">true</span>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 238</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">toggle_friend</span>
+    <span class="ruby-ivar">@friended</span> = <span class="ruby-ivar">@friended</span> <span class="ruby-operator">?</span> <span class="ruby-keyword kw">false</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">true</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>

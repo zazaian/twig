@@ -35,7 +35,6 @@ class Twig::Status
   end
 
   
-  # Add and remove favorites 
   def fav(id=nil)
     favorite(id)
   end
@@ -73,7 +72,6 @@ class Twig::Status
 
     return output
   end
-  # end favorites
   
 
   def get(id=nil)

@@ -190,7 +190,15 @@
 <pre>
 <span class="ruby-comment cmt"># File lib/twig/user.rb, line 143</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">befriend</span>
-    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:add</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:add</span>, <span class="ruby-ivar">@info</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unable to befriend user '#{@info.screen_name}'&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
@@ -211,9 +219,17 @@
             onclick="toggleCode('M000032-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000032-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/twig/user.rb, line 147</span>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 155</span>
   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">defriend</span>
-    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:remove</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:remove</span>, <span class="ruby-ivar">@info</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unable to defriend user '#{@info.screen_name}'&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output</span>
   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
