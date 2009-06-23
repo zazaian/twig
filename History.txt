@@ -1,4 +1,10 @@
 
+== 0.5.11
+* 3 Minor Improvements
+ * Add active() method to Twig::Users
+ * Add more search options to Twig::Timeline.sort_by()
+ * Set :created as default in all sort_by() methods
+
 == 0.5.10
 * 4 Minor Improvements
  * Add documentation to friend.rb and message_box.rb

@@ -161,7 +161,7 @@ class Twig::Messages::Box
     if id || screen_name
       if id && screen_name
         output = nil
-        raise ArgumentError, "Use only screen name OR id # when finding a friend."
+        raise ArgumentError, "Use only screen name OR id # when finding a message."
       else
         messages = contents
         if id 
@@ -185,15 +185,15 @@ class Twig::Messages::Box
         else
           output = nil
           if id
-            raise "Couldn't find friend ##{id}"
+            raise "Couldn't find message sent by friend ##{id}"
           else
-            raise "Couldn't find friend with screen_name '#{screen_name}'"
+            raise "Couldn't find message sent by user with screen_name '#{screen_name}'"
           end
         end
       end
     else
       output = nil
-      raise ArgumentError, "You must use either an id# or a screen name to find a friend."
+      raise ArgumentError, "You must use either an id# or a screen name of a user to find a message."
     end
 
     return output
