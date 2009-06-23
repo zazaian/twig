@@ -85,7 +85,7 @@ class Twig::Messages::Box
   # * Direction in which to return sorted results
   # * Defaults to :desc [descending]
   #
-  def sort_by(ivar, opts={})
+  def sort_by(ivar=:created, opts={})
 
     msg_vars = {
       :id => :@id,

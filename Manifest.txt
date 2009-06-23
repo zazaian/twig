@@ -8,7 +8,7 @@ lib/twig/etc/version.rb
 lib/twig/friend.rb
 lib/twig/message/message.rb
 lib/twig/message/message_box.rb
-lib/twig/meta.rb
+lib/twig/my.rb
 lib/twig/status.rb
 lib/twig/timeline.rb
 lib/twig/user.rb

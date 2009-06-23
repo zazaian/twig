@@ -1,4 +1,8 @@
 
+== 0.5.12
+* 1 Minor Improvement
+ * Finished in-page documentation
+
 == 0.5.11
 * 3 Minor Improvements
  * Add active() method to Twig::Users

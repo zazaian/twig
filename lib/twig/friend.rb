@@ -76,7 +76,7 @@ class Twig::FriendBox
   # * Direction in which to return sorted results
   # * Defaults to :desc [descending]
   #
-  def sort_by(ivar, opts={})
+  def sort_by(ivar=:created, opts={})
   
     ivars = {
       :id => :@id,
