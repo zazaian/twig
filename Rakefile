@@ -4,9 +4,15 @@ require 'hoe'
 $:.unshift(File.dirname(__FILE__) + "/lib")
 require 'twig'
 
-Hoe.new('twig', Twig::VERSION.print) do |p|
+#RDOCOPT="-S -f html -T hanna"
+RDOCOPT="-f hanna"
+
+Hoe.spec('twig') do |p|
+  p.version = Twig::VERSION.print
   p.developer 'Mike Zazaian', 'zazaian@gmail.com'
   p.url = "http://twig-twitter.rubyforge.org"
+
+  p.extra_deps = ['twitter4r', '>=0.2.4']
 
   d = "An intelligent wrapper for the Twitter4r gem."
   p.description = d

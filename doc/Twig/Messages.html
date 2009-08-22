@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Twig::Messages</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/twig/message/message_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/twig/message/message.rb">lib/twig/message/message.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+			<div id="namespace-list-section" class="section">
+				<h3 class="section-header">Namespace</h3>
+				<ul class="link-list">
+					
+					<li><span class="type">MODULE</span> <a href="Messages/Methods.html">Twig::Messages::Methods</a></li>
+					
+					<li><span class="type">CLASS</span> <a href="Messages/Box.html">Twig::Messages::Box</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000038">::new</a></li>
+					
+					<li><a href="#M000045">#all</a></li>
+					
+					<li><a href="#M000046">#count</a></li>
+					
+					<li><a href="#M000041">#in</a></li>
+					
+					<li><a href="#M000039">#inbox</a></li>
+					
+					<li><a href="#M000043">#out</a></li>
+					
+					<li><a href="#M000040">#outbox</a></li>
+					
+					<li><a href="#M000042">#received</a></li>
+					
+					<li><a href="#M000044">#sent</a></li>
+					
+					<li><a href="#M000047">#size</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../History_txt.html">History.txt</a></li>
+				
+					<li class="file"><a href="../Manifest_txt.html">Manifest.txt</a></li>
+				
+					<li class="file"><a href="../README_txt.html">README.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Twig.html">Twig</a></li>
+				
+					<li><a href="../Twig/Friend.html">Twig::Friend</a></li>
+				
+					<li><a href="../Twig/Friend/Methods.html">Twig::Friend::Methods</a></li>
+				
+					<li><a href="../Twig/FriendBox.html">Twig::FriendBox</a></li>
+				
+					<li><a href="../Twig/Inbox.html">Twig::Inbox</a></li>
+				
+					<li><a href="../Twig/Inbox/Message.html">Twig::Inbox::Message</a></li>
+				
+					<li><a href="../Twig/Message.html">Twig::Message</a></li>
+				
+					<li><a href="../Twig/Messages.html">Twig::Messages</a></li>
+				
+					<li><a href="../Twig/Messages/Box.html">Twig::Messages::Box</a></li>
+				
+					<li><a href="../Twig/Messages/Methods.html">Twig::Messages::Methods</a></li>
+				
+					<li><a href="../Twig/My.html">Twig::My</a></li>
+				
+					<li><a href="../Twig/My/Methods.html">Twig::My::Methods</a></li>
+				
+					<li><a href="../Twig/Outbox.html">Twig::Outbox</a></li>
+				
+					<li><a href="../Twig/Outbox/Message.html">Twig::Outbox::Message</a></li>
+				
+					<li><a href="../Twig/Status.html">Twig::Status</a></li>
+				
+					<li><a href="../Twig/Status/Methods.html">Twig::Status::Methods</a></li>
+				
+					<li><a href="../Twig/Timeline.html">Twig::Timeline</a></li>
+				
+					<li><a href="../Twig/Timeline/Friends.html">Twig::Timeline::Friends</a></li>
+				
+					<li><a href="../Twig/Timeline/Mine.html">Twig::Timeline::Mine</a></li>
+				
+					<li><a href="../Twig/Timeline/Public.html">Twig::Timeline::Public</a></li>
+				
+					<li><a href="../Twig/Timelines.html">Twig::Timelines</a></li>
+				
+					<li><a href="../Twig/Timelines/Methods.html">Twig::Timelines::Methods</a></li>
+				
+					<li><a href="../Twig/User.html">Twig::User</a></li>
+				
+					<li><a href="../Twig/Users.html">Twig::Users</a></li>
+				
+					<li><a href="../Twig/Users/Methods.html">Twig::Users::Methods</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Twig::Messages</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="client-attribute-method" class="method-detail">
+				<a name="client"></a>
+				
+				<a name="client="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">client</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="inbox-attribute-method" class="method-detail">
+				<a name="inbox"></a>
+				
+				<a name="inbox="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">inbox</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="outbox-attribute-method" class="method-detail">
+				<a name="outbox"></a>
+				
+				<a name="outbox="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">outbox</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="all-attribute-method" class="method-detail">
+				<a name="all"></a>
+				
+				<a name="all="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">all</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000038"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(client)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/message/message.rb, line 7</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
+    <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="all-method" class="method-detail ">
+				<a name="M000045"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">all</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns contents of <em>inbox</em> and <em>outbox</em>
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="all-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/message/message.rb, line 71</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all</span>
+    <span class="ruby-identifier">inbox</span>.<span class="ruby-identifier">contents</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">outbox</span>.<span class="ruby-identifier">contents</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="count-method" class="method-detail ">
+				<a name="M000046"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">count</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the combined number of messages in the <em>inbox</em> and
+<em>outbox</em>
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="count-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/message/message.rb, line 77</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">count</span>
+    <span class="ruby-identifier">inbox</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">outbox</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="Messages.html#M000047">size</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="in-method" class="method-detail ">
+				<a name="M000041"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">in</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the <em>contents</em> of <a href="Inbox.html">Twig::Inbox</a>
+</p>
+<p>
+If there are no messages in the <em>inbox</em>, <em>nil</em> will be
+returned.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="in-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/message/message.rb, line 55</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">in</span>
+    <span class="ruby-identifier">inbox</span>.<span class="ruby-identifier">contents</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="Messages.html#M000042">received</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="inbox-method" class="method-detail ">
+				<a name="M000039"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">inbox</span><span
+						class="method-args">(action=nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Provides access to the <a href="Inbox.html">Twig::Inbox</a> object.
+</p>
+<p>
+If <em>action</em> is :destroy or :empty, or if <em>inbox</em> hasn&#8217;t
+been called before, the @inbox instance variable will be set to a new,
+empty <a href="Inbox.html">Twig::Inbox</a>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="inbox-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/message/message.rb, line 16</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inbox</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@inbox</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:destroy</span>, <span class="ruby-identifier">:empty</span>
+        <span class="ruby-ivar">@inbox</span> = <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">Inbox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@inbox</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @active.&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-ivar">@inbox</span> = <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">Inbox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>)
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="out-method" class="method-detail ">
+				<a name="M000043"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">out</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the <em>contents</em> of <a href="Inbox.html">Twig::Inbox</a>.
+</p>
+<p>
+If there are no messages in the <em>outbox</em>, <em>nil</em> will be
+returned.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="out-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/message/message.rb, line 64</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">out</span>
+    <span class="ruby-identifier">outbox</span>.<span class="ruby-identifier">contents</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="Messages.html#M000044">sent</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="outbox-method" class="method-detail ">
+				<a name="M000040"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">outbox</span><span
+						class="method-args">(action=nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Provides access to the <a href="Outbox.html">Twig::Outbox</a> object.
+</p>
+<p>
+If <em>action</em> is :destroy or :empty, or if <em>outbox</em>
+hasn&#8217;t been called before, the @outbox instance variable will be set
+to a new, empty <a href="Outbox.html">Twig::Outbox</a>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="outbox-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/message/message.rb, line 36</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">outbox</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@outbox</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:destroy</span>, <span class="ruby-identifier">:empty</span>
+        <span class="ruby-ivar">@outbox</span> = <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">Outbox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@outbox</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @active.&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-ivar">@outbox</span> = <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">Outbox</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>)
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="received-method" class="method-detail method-alias">
+				<a name="M000042"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">received</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="Messages.html#M000041">in</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="sent-method" class="method-detail method-alias">
+				<a name="M000044"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sent</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="Messages.html#M000043">out</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="size-method" class="method-detail method-alias">
+				<a name="M000047"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">size</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="Messages.html#M000046">count</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

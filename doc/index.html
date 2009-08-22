@@ -1,24 +1,414 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html 
-     PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-<!--
-
-    twig-0.5.10 Documentation
-
-  -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <title>twig-0.5.10 Documentation</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>twig-0.5.12 Documentation</title>
+
+	<link type="text/css" media="screen" href="rdoc.css" rel="stylesheet" />
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
-<frameset rows="20%, 80%">
-    <frameset cols="25%,35%,45%">
-        <frame src="fr_file_index.html"   title="Files" name="Files" />
-        <frame src="fr_class_index.html"  name="Classes" />
-        <frame src="fr_method_index.html" name="Methods" />
-    </frameset>
-    <frame src="files/README_txt.html" name="docwin" />
-</frameset>
+<body class="indexpage">
+
+	
+	<h1>twig-0.5.12 Documentation</h1>
+
+	
+	<div id="main">
+		
+<ul>
+<li>by Mike Zazaian
+
+</li>
+<li><a href="http://twig-twitter.rubyforge.org">twig-twitter.rubyforge.org</a>
+
+</li>
+</ul>
+<h2>DESCRIPTION:</h2>
+<p>
+An intelligent wrapper for the Twitter4r Rubygem.
+</p>
+<h2>FEATURES/PROBLEMS:</h2>
+<h2>SYNOPSIS:</h2>
+<h3>Intro</h3>
+<h2>REQUIREMENTS:</h2>
+<p>
+You must have rubygems installed to use <a href="Twig.html">Twig</a> as a
+gem. To install Rubygems on a debian or ubuntu linux system, do:
+</p>
+<pre>
+  sudo aptitude update &amp;&amp; sudo aptitude install rubygems
+</pre>
+<h2>INSTALL:</h2>
+<h3>As a Rubygem</h3>
+<pre>
+  sudo gem install --remote twig-twitter
+</pre>
+<p>
+Then, add <a href="Twig.html">Twig</a> to your script with:
+</p>
+<pre>
+  require 'rubygems'
+  require 'twig'
+</pre>
+<h3>Directly into your script</h3>
+<p>
+If you want to include <a href="Twig.html">Twig</a> directly into your
+script, you can download <a href="Twig.html">Twig</a> as a .tgz package
+from the <a href="Twig.html">Twig</a> homepage at:
+</p>
+<pre>
+  http://twig-twitter.rubygems.org
+</pre>
+<p>
+Once you have the package, add <a href="Twig.html">Twig</a> to your
+script&#8217;s directory, add the twig directory to your $LOAD_PATH
+variable...
+</p>
+<pre>
+  $LOAD_PATH &lt;&lt; &quot;./twig&quot;
+</pre>
+<p>
+.. and require <a href="Twig.html">Twig</a> at the top of your script:
+</p>
+<pre>
+  require 'twig'
+</pre>
+<h2>LICENSE:</h2>
+<p>
+(The MIT License)
+</p>
+<p>
+Copyright &#169; 2009 Mike Zazaian
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#8216;Software&#8217;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+
+	</div>
+	
+
+	
+	
+	<h2>Files</h2>
+	<ul>
+		
+			<li class="file"><a href="History_txt.html">History.txt</a></li>
+		
+			<li class="file"><a href="Manifest_txt.html">Manifest.txt</a></li>
+		
+			<li class="file"><a href="README_txt.html">README.txt</a></li>
+		
+	</ul>
+	
+
+	<h2>Classes/Modules</h2>
+	<ul>
+		
+		<li class="class"><a href="Twig.html">Twig</a></li>
+		
+		<li class="class"><a href="Twig/Friend.html">Twig::Friend</a></li>
+		
+		<li class="module"><a href="Twig/Friend/Methods.html">Twig::Friend::Methods</a></li>
+		
+		<li class="class"><a href="Twig/FriendBox.html">Twig::FriendBox</a></li>
+		
+		<li class="class"><a href="Twig/Inbox.html">Twig::Inbox</a></li>
+		
+		<li class="class"><a href="Twig/Inbox/Message.html">Twig::Inbox::Message</a></li>
+		
+		<li class="class"><a href="Twig/Message.html">Twig::Message</a></li>
+		
+		<li class="class"><a href="Twig/Messages.html">Twig::Messages</a></li>
+		
+		<li class="class"><a href="Twig/Messages/Box.html">Twig::Messages::Box</a></li>
+		
+		<li class="module"><a href="Twig/Messages/Methods.html">Twig::Messages::Methods</a></li>
+		
+		<li class="class"><a href="Twig/My.html">Twig::My</a></li>
+		
+		<li class="module"><a href="Twig/My/Methods.html">Twig::My::Methods</a></li>
+		
+		<li class="class"><a href="Twig/Outbox.html">Twig::Outbox</a></li>
+		
+		<li class="class"><a href="Twig/Outbox/Message.html">Twig::Outbox::Message</a></li>
+		
+		<li class="class"><a href="Twig/Status.html">Twig::Status</a></li>
+		
+		<li class="module"><a href="Twig/Status/Methods.html">Twig::Status::Methods</a></li>
+		
+		<li class="class"><a href="Twig/Timeline.html">Twig::Timeline</a></li>
+		
+		<li class="class"><a href="Twig/Timeline/Friends.html">Twig::Timeline::Friends</a></li>
+		
+		<li class="class"><a href="Twig/Timeline/Mine.html">Twig::Timeline::Mine</a></li>
+		
+		<li class="class"><a href="Twig/Timeline/Public.html">Twig::Timeline::Public</a></li>
+		
+		<li class="class"><a href="Twig/Timelines.html">Twig::Timelines</a></li>
+		
+		<li class="module"><a href="Twig/Timelines/Methods.html">Twig::Timelines::Methods</a></li>
+		
+		<li class="class"><a href="Twig/User.html">Twig::User</a></li>
+		
+		<li class="class"><a href="Twig/Users.html">Twig::Users</a></li>
+		
+		<li class="module"><a href="Twig/Users/Methods.html">Twig::Users::Methods</a></li>
+		
+	</ul>
+
+	<h2>Methods</h2>
+	<ul>
+		
+			<li><a href="Twig/Messages.html#M000038">::new &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Message.html#M000048">::new &mdash; Twig::Message</a></li>
+		
+			<li><a href="Twig/Friend.html#M000023">::new &mdash; Twig::Friend</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000001">::new &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig.html#M000000">::new &mdash; Twig</a></li>
+		
+			<li><a href="Twig/Users.html#M000060">::new &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/Timelines.html#M000006">::new &mdash; Twig::Timelines</a></li>
+		
+			<li><a href="Twig/My.html#M000084">::new &mdash; Twig::My</a></li>
+		
+			<li><a href="Twig/Timeline.html#M000012">::new &mdash; Twig::Timeline</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000051">::new &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/Status.html#M000091">::new &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/User.html#M000077">::new &mdash; Twig::User</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000059">#activate &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000014">#activate &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000056">#active &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/Users.html#M000069">#active &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000003">#active &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Status.html#M000093">#ago &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Messages.html#M000045">#all &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Users.html#M000067">#all &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000004">#all &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Timeline.html#M000016">#all &mdash; Twig::Timeline</a></li>
+		
+			<li><a href="Twig/Friend.html#M000030">#befriend &mdash; Twig::Friend</a></li>
+		
+			<li><a href="Twig/User.html#M000081">#befriend &mdash; Twig::User</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000052">#contents &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/Messages.html#M000046">#count &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Friend.html#M000034">#defriend &mdash; Twig::Friend</a></li>
+		
+			<li><a href="Twig/User.html#M000082">#defriend &mdash; Twig::User</a></li>
+		
+			<li><a href="Twig/Status.html#M000105">#delete &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Message.html#M000049">#delete &mdash; Twig::Message</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000002">#each &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Status.html#M000100">#fav &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Status.html#M000102">#favorite &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/My/Methods.html#M000096">#favorites &mdash; Twig::My::Methods</a></li>
+		
+			<li><a href="Twig/My.html#M000087">#favorites &mdash; Twig::My</a></li>
+		
+			<li><a href="Twig/My/Methods.html#M000097">#favs &mdash; Twig::My::Methods</a></li>
+		
+			<li><a href="Twig/My.html#M000088">#favs &mdash; Twig::My</a></li>
+		
+			<li><a href="Twig/Users.html#M000065">#fetched &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/Timeline/Friends.html#M000031">#fill &mdash; Twig::Timeline::Friends</a></li>
+		
+			<li><a href="Twig/Timeline/Public.html#M000029">#fill &mdash; Twig::Timeline::Public</a></li>
+		
+			<li><a href="Twig/Inbox.html#M000064">#fill &mdash; Twig::Inbox</a></li>
+		
+			<li><a href="Twig/Timeline/Mine.html#M000032">#fill &mdash; Twig::Timeline::Mine</a></li>
+		
+			<li><a href="Twig/Outbox.html#M000066">#fill &mdash; Twig::Outbox</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000058">#find &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/Users.html#M000071">#find &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000008">#find &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Users.html#M000061">#first &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000062">#first &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000021">#first &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/My.html#M000089">#followers &mdash; Twig::My</a></li>
+		
+			<li><a href="Twig/My/Methods.html#M000098">#followers &mdash; Twig::My::Methods</a></li>
+		
+			<li><a href="Twig/Inbox/Message.html#M000070">#forward_to &mdash; Twig::Inbox::Message</a></li>
+		
+			<li><a href="Twig/Outbox/Message.html#M000073">#forward_to &mdash; Twig::Outbox::Message</a></li>
+		
+			<li><a href="Twig/Friend/Methods.html#M000037">#friend &mdash; Twig::Friend::Methods</a></li>
+		
+			<li><a href="Twig/Friend/Methods.html#M000035">#friend_box &mdash; Twig::Friend::Methods</a></li>
+		
+			<li><a href="Twig/Friend/Methods.html#M000036">#friends &mdash; Twig::Friend::Methods</a></li>
+		
+			<li><a href="Twig/Timelines.html#M000010">#friends &mdash; Twig::Timelines</a></li>
+		
+			<li><a href="Twig/Status.html#M000104">#get &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Status.html#M000106">#get_delete &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Users.html#M000076">#id &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000020">#id &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Messages.html#M000041">#in &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Messages.html#M000039">#inbox &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Messages/Methods.html#M000053">#inbox &mdash; Twig::Messages::Methods</a></li>
+		
+			<li><a href="Twig/My.html#M000085">#info &mdash; Twig::My</a></li>
+		
+			<li><a href="Twig/My/Methods.html#M000094">#info &mdash; Twig::My::Methods</a></li>
+		
+			<li><a href="Twig/Friend.html#M000026">#is_friend? &mdash; Twig::Friend</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000063">#last &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000022">#last &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/User.html#M000080">#message &mdash; Twig::User</a></li>
+		
+			<li><a href="Twig/Friend.html#M000027">#message &mdash; Twig::Friend</a></li>
+		
+			<li><a href="Twig/Messages/Methods.html#M000050">#messages &mdash; Twig::Messages::Methods</a></li>
+		
+			<li><a href="Twig/Timelines.html#M000007">#mine &mdash; Twig::Timelines</a></li>
+		
+			<li><a href="Twig/Timelines.html#M000009">#my &mdash; Twig::Timelines</a></li>
+		
+			<li><a href="Twig/My/Methods.html#M000090">#my &mdash; Twig::My::Methods</a></li>
+		
+			<li><a href="Twig/Messages.html#M000043">#out &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Messages.html#M000040">#outbox &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Messages/Methods.html#M000054">#outbox &mdash; Twig::Messages::Methods</a></li>
+		
+			<li><a href="Twig/Status.html#M000095">#post &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Timeline.html#M000015">#print &mdash; Twig::Timeline</a></li>
+		
+			<li><a href="Twig/Timelines.html#M000011">#public &mdash; Twig::Timelines</a></li>
+		
+			<li><a href="Twig/Messages.html#M000042">#received &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Outbox/Message.html#M000072">#reply &mdash; Twig::Outbox::Message</a></li>
+		
+			<li><a href="Twig/Inbox/Message.html#M000068">#reply &mdash; Twig::Inbox::Message</a></li>
+		
+			<li><a href="Twig/Users.html#M000074">#screen_name &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000017">#screen_name &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Messages.html#M000044">#sent &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000055">#size &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/Messages.html#M000047">#size &mdash; Twig::Messages</a></li>
+		
+			<li><a href="Twig/Users.html#M000075">#sn &mdash; Twig::Users</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000019">#sn &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Timeline.html#M000018">#sort_by &mdash; Twig::Timeline</a></li>
+		
+			<li><a href="Twig/Messages/Box.html#M000057">#sort_by &mdash; Twig::Messages::Box</a></li>
+		
+			<li><a href="Twig/FriendBox.html#M000005">#sort_by &mdash; Twig::FriendBox</a></li>
+		
+			<li><a href="Twig/Status/Methods.html#M000107">#status &mdash; Twig::Status::Methods</a></li>
+		
+			<li><a href="Twig/User.html#M000079">#status &mdash; Twig::User</a></li>
+		
+			<li><a href="Twig/Timeline.html#M000013">#statuses &mdash; Twig::Timeline</a></li>
+		
+			<li><a href="Twig/User.html#M000078">#timeline &mdash; Twig::User</a></li>
+		
+			<li><a href="Twig/My/Methods.html#M000099">#timeline &mdash; Twig::My::Methods</a></li>
+		
+			<li><a href="Twig/Friend.html#M000028">#timeline &mdash; Twig::Friend</a></li>
+		
+			<li><a href="Twig/Timelines/Methods.html#M000033">#timelines &mdash; Twig::Timelines::Methods</a></li>
+		
+			<li><a href="Twig/Friend.html#M000025">#toggle &mdash; Twig::Friend</a></li>
+		
+			<li><a href="Twig/Friend.html#M000024">#toggle_friend &mdash; Twig::Friend</a></li>
+		
+			<li><a href="Twig/Status.html#M000101">#unfav &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Status.html#M000103">#unfavorite &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Status.html#M000092">#update &mdash; Twig::Status</a></li>
+		
+			<li><a href="Twig/Users/Methods.html#M000086">#user &mdash; Twig::Users::Methods</a></li>
+		
+			<li><a href="Twig/Users/Methods.html#M000083">#users &mdash; Twig::Users::Methods</a></li>
+		
+	</ul>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
 </html>

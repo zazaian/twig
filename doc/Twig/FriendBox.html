@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Twig::FriendBox</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/twig/friend_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/twig/friend.rb">lib/twig/friend.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000001">::new</a></li>
+					
+					<li><a href="#M000014">#activate</a></li>
+					
+					<li><a href="#M000003">#active</a></li>
+					
+					<li><a href="#M000004">#all</a></li>
+					
+					<li><a href="#M000002">#each</a></li>
+					
+					<li><a href="#M000008">#find</a></li>
+					
+					<li><a href="#M000021">#first</a></li>
+					
+					<li><a href="#M000020">#id</a></li>
+					
+					<li><a href="#M000022">#last</a></li>
+					
+					<li><a href="#M000017">#screen_name</a></li>
+					
+					<li><a href="#M000019">#sn</a></li>
+					
+					<li><a href="#M000005">#sort_by</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../History_txt.html">History.txt</a></li>
+				
+					<li class="file"><a href="../Manifest_txt.html">Manifest.txt</a></li>
+				
+					<li class="file"><a href="../README_txt.html">README.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Twig.html">Twig</a></li>
+				
+					<li><a href="../Twig/Friend.html">Twig::Friend</a></li>
+				
+					<li><a href="../Twig/Friend/Methods.html">Twig::Friend::Methods</a></li>
+				
+					<li><a href="../Twig/FriendBox.html">Twig::FriendBox</a></li>
+				
+					<li><a href="../Twig/Inbox.html">Twig::Inbox</a></li>
+				
+					<li><a href="../Twig/Inbox/Message.html">Twig::Inbox::Message</a></li>
+				
+					<li><a href="../Twig/Message.html">Twig::Message</a></li>
+				
+					<li><a href="../Twig/Messages.html">Twig::Messages</a></li>
+				
+					<li><a href="../Twig/Messages/Box.html">Twig::Messages::Box</a></li>
+				
+					<li><a href="../Twig/Messages/Methods.html">Twig::Messages::Methods</a></li>
+				
+					<li><a href="../Twig/My.html">Twig::My</a></li>
+				
+					<li><a href="../Twig/My/Methods.html">Twig::My::Methods</a></li>
+				
+					<li><a href="../Twig/Outbox.html">Twig::Outbox</a></li>
+				
+					<li><a href="../Twig/Outbox/Message.html">Twig::Outbox::Message</a></li>
+				
+					<li><a href="../Twig/Status.html">Twig::Status</a></li>
+				
+					<li><a href="../Twig/Status/Methods.html">Twig::Status::Methods</a></li>
+				
+					<li><a href="../Twig/Timeline.html">Twig::Timeline</a></li>
+				
+					<li><a href="../Twig/Timeline/Friends.html">Twig::Timeline::Friends</a></li>
+				
+					<li><a href="../Twig/Timeline/Mine.html">Twig::Timeline::Mine</a></li>
+				
+					<li><a href="../Twig/Timeline/Public.html">Twig::Timeline::Public</a></li>
+				
+					<li><a href="../Twig/Timelines.html">Twig::Timelines</a></li>
+				
+					<li><a href="../Twig/Timelines/Methods.html">Twig::Timelines::Methods</a></li>
+				
+					<li><a href="../Twig/User.html">Twig::User</a></li>
+				
+					<li><a href="../Twig/Users.html">Twig::Users</a></li>
+				
+					<li><a href="../Twig/Users/Methods.html">Twig::Users::Methods</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Twig::FriendBox</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="client-attribute-method" class="method-detail">
+				<a name="client"></a>
+				
+				<a name="client="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">client</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="all-attribute-method" class="method-detail">
+				<a name="all"></a>
+				
+				<a name="all="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">all</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="active-attribute-method" class="method-detail">
+				<a name="active"></a>
+				
+				<a name="active="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">active</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="find-attribute-method" class="method-detail">
+				<a name="find"></a>
+				
+				<a name="find="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">find</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="sort-by-attribute-method" class="method-detail">
+				<a name="sort_by"></a>
+				
+				<a name="sort_by="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">sort_by</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000001"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(client)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 3</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
+    <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
+    <span class="ruby-ivar">@active</span> = <span class="ruby-identifier">first</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="activate-method" class="method-detail ">
+				<a name="M000014"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">activate</span><span
+						class="method-args">(friend)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns a <a href="Friend.html">Twig::Friend</a> object with an ID or <a
+href="FriendBox.html#M000017">screen_name</a> matching <em>friend</em>, and
+sets it as the ACTIVE <a href="Friend.html">Twig::Friend</a>.
+</p>
+<p>
+If no friend is found nil will be returned and an error will be raised.
+</p>
+<p>
+<em>friend</em> can be entered as either a Twitter user ID (Fixnum), or the
+user&#8217;s screen name (String).
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="activate-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 184</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">activate</span>(<span class="ruby-identifier">friend</span>)
+
+    <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">friend</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Fixnum</span>
+      <span class="ruby-identifier">find</span> <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">friend</span>, <span class="ruby-identifier">:activate</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+    <span class="ruby-keyword kw">when</span> <span class="ruby-constant">String</span>
+      <span class="ruby-identifier">find</span> <span class="ruby-identifier">:screen_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">friend</span>, <span class="ruby-identifier">:activate</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">true</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @activate.&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="active-method" class="method-detail ">
+				<a name="M000003"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">active</span><span
+						class="method-args">(action=nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the ACTIVE <a href="Friend.html">Twig::Friend</a> object.
+</p>
+<p>
+Use :update, :sync or :refresh to rebuild the Twig::Friends.all array and
+set the most recent friend as active.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="active-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 16</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">active</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@active</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>, <span class="ruby-identifier">:sync</span>, <span class="ruby-identifier">:refresh</span>
+        <span class="ruby-ivar">@active</span> = <span class="ruby-identifier">first</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@active</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @active.&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-ivar">@active</span> = <span class="ruby-identifier">first</span>
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="all-method" class="method-detail ">
+				<a name="M000004"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">all</span><span
+						class="method-args">(action=nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns an array of all <a href="Friend.html">Twig::Friend</a> objects.
+</p>
+<p>
+Use :update or :sync to rebuild the array with all current friends from the
+Twitter server.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="all-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 36</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">all</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@all</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>, <span class="ruby-identifier">:sync</span>, <span class="ruby-identifier">:refresh</span>
+        <span class="ruby-ivar">@all</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">my</span>(<span class="ruby-identifier">:friends</span>).<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">Friend</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>, <span class="ruby-identifier">f</span>) }
+      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@all</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @all.&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-ivar">@all</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">my</span>(<span class="ruby-identifier">:friends</span>).<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">Twig</span><span class="ruby-operator">::</span><span class="ruby-constant">Friend</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@client</span>, <span class="ruby-identifier">f</span>) }
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="each-method" class="method-detail ">
+				<a name="M000002"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">each</span><span
+						class="method-args">(&block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="each-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 8</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-identifier">all</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="find-method" class="method-detail ">
+				<a name="M000008"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">find</span><span
+						class="method-args">(opts={})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Find and return a <a href="Friend.html">Twig::Friend</a> object based on
+user ID or screen name.
+</p>
+<p>
+OPTIONS
+</p>
+<p>
+ID [ :id => Fixnum ]
+</p>
+<ul>
+<li>Search for friend by ID number
+
+</li>
+<li>Must be a Fixnum object
+
+</li>
+</ul>
+<p>
+Screen Name [ :<a href="FriendBox.html#M000017">screen_name</a> => String ]
+</p>
+<ul>
+<li>Search for a friend by screen name
+
+</li>
+<li>Must be a String
+
+</li>
+</ul>
+<p>
+Activate [ :activate => false OR true ]
+</p>
+<ul>
+<li>Determines whether or not the found friend is set as the active friend.
+
+</li>
+<li>Defaults to FALSE
+
+</li>
+</ul>
+<p>
+Returns nil and raises an error if no friend is found.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="find-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 129</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">opts</span>={})
+    <span class="ruby-identifier">id</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:id</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:id</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">screen_name</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:screen_name</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:screen_name</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-identifier">activate</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:activate</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:activate</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword kw">false</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">screen_name</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">screen_name</span>
+        <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Use only screen name OR id # when finding a friend.&quot;</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">friends</span> = <span class="ruby-identifier">all</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">id</span> 
+          <span class="ruby-identifier">friends</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">id</span>
+              <span class="ruby-identifier">output</span> = <span class="ruby-identifier">f</span>
+              <span class="ruby-keyword kw">break</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">screen_name</span>
+          <span class="ruby-identifier">friends</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">screen_name</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">screen_name</span>.<span class="ruby-identifier">downcase</span>
+              <span class="ruby-identifier">output</span> = <span class="ruby-identifier">f</span>
+              <span class="ruby-keyword kw">break</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">output</span>
+          <span class="ruby-ivar">@active</span> = <span class="ruby-identifier">output</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">activate</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">id</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Couldn't find friend ##{id}&quot;</span>
+          <span class="ruby-keyword kw">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Couldn't find friend with screen_name '#{screen_name}'&quot;</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;You must use either an id# or a screen name to find a friend.&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="first-method" class="method-detail ">
+				<a name="M000021"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">first</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the first <a href="Friend.html">Twig::Friend</a> object in your <a
+href="FriendBox.html#M000004">Twig::FriendBox.all</a> Array
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="first-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 217</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">all</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="id-method" class="method-detail ">
+				<a name="M000020"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">id</span><span
+						class="method-args">(num)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Finds a <a href="Friend.html">Twig::Friend</a> by <em>id</em> (Fixnum) and
+returns it if found, otherwise returns nil and raises an error.
+</p>
+<p>
+Does NOT activate the <a href="Friend.html">Twig::Friend</a> if found.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="id-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 212</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">id</span>(<span class="ruby-identifier">num</span>)
+    <span class="ruby-identifier">find</span> <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">num</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="last-method" class="method-detail ">
+				<a name="M000022"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">last</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the last <a href="Friend.html">Twig::Friend</a> object in your <a
+href="FriendBox.html#M000004">Twig::FriendBox.all</a> Array
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="last-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 222</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">last</span>
+    <span class="ruby-identifier">all</span>[<span class="ruby-identifier">all</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="screen-name-method" class="method-detail ">
+				<a name="M000017"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">screen_name</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Finds a <a href="Friend.html">Twig::Friend</a> by <em><a
+href="FriendBox.html#M000017">screen_name</a></em> (String) and returns it
+if found, otherwise returns nil and raises an error.
+</p>
+<p>
+Does NOT activate the <a href="Friend.html">Twig::Friend</a> object if
+found.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="screen-name-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 202</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">screen_name</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">find</span> <span class="ruby-identifier">:screen_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+				<div class="aliases">
+					Also aliased as: <a href="FriendBox.html#M000019">sn</a>
+				</div>
+				
+			</div>
+
+		
+			<div id="sn-method" class="method-detail method-alias">
+				<a name="M000019"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sn</span><span
+						class="method-args">(name)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alias for <a href="FriendBox.html#M000017">screen_name</a>
+</p>
+					
+
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="sort-by-method" class="method-detail ">
+				<a name="M000005"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sort_by</span><span
+						class="method-args">(ivar=:created, opts={})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns an Array of <a href="Friend.html">Twig::Friend</a> objects, sorted
+by the following criteria:
+</p>
+<p>
+<em>ivar</em> values
+</p>
+<ul>
+<li>:id
+
+</li>
+<li>:<a href="FriendBox.html#M000017">screen_name</a> OR :sn
+
+</li>
+<li>:time OR :created
+
+</li>
+<li>:name (user&#8217;s REAL name)
+
+</li>
+<li>:favorites (total #)
+
+</li>
+<li>:statuses (total #)
+
+</li>
+<li>:followers (total #)
+
+</li>
+<li>:following (total #)
+
+</li>
+</ul>
+<p>
+Results can be adjusted with the following OPTIONS:
+</p>
+<p>
+Page Size (:page_size => Fixnum)
+</p>
+<ul>
+<li>Number of results to return per page
+
+</li>
+<li>Defaults to 10
+
+</li>
+</ul>
+<p>
+Page (:page => Fixnum)
+</p>
+<ul>
+<li>Page number to return
+
+</li>
+<li>Defaults to 1
+
+</li>
+</ul>
+<p>
+Direction (:dir => :asc OR :desc)
+</p>
+<ul>
+<li>Direction in which to return sorted results
+
+</li>
+<li>Defaults to :desc [descending]
+
+</li>
+</ul>
+					
+
+					
+					<div class="method-source-code"
+						id="sort-by-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/friend.rb, line 79</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort_by</span>(<span class="ruby-identifier">ivar</span>=<span class="ruby-identifier">:created</span>, <span class="ruby-identifier">opts</span>={})
+  
+    <span class="ruby-identifier">ivars</span> = {
+      <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@id</span>,
+      <span class="ruby-identifier">:screen_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@screen_name</span>,
+      <span class="ruby-identifier">:sn</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@screen_name</span>,
+      <span class="ruby-identifier">:time</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@created_at</span>,
+      <span class="ruby-identifier">:created</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@created_at</span>,
+      <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@name</span>,
+      <span class="ruby-identifier">:favorites</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@favourites_count</span>,
+      <span class="ruby-identifier">:statuses</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@statuses_count</span>,
+      <span class="ruby-identifier">:followers</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@followers_count</span>,
+      <span class="ruby-identifier">:following</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:@following</span>
+      }
+
+    <span class="ruby-identifier">page</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:page</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:page</span>] <span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">page_size</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:page_size</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:page_size</span>] <span class="ruby-operator">:</span> <span class="ruby-value">10</span>
+    <span class="ruby-identifier">dir</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:dir</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">:dir</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">:desc</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">ivars</span>[<span class="ruby-identifier">ivar</span>]
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{ivar} is not a valid argument for sort_by.&quot;</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-identifier">all</span>.<span class="ruby-identifier">sort</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span>,<span class="ruby-identifier">y</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">y</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">ivars</span>[<span class="ruby-identifier">ivar</span>]) <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">ivars</span>[<span class="ruby-identifier">ivar</span>])
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">output</span>.<span class="ruby-identifier">reverse!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">dir</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:asc</span>
+      <span class="ruby-identifier">starts</span>, <span class="ruby-identifier">ends</span> = ((<span class="ruby-identifier">page_size</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">page</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">page_size</span>), (<span class="ruby-identifier">page_size</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">page</span>)
+      
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output</span>[<span class="ruby-identifier">starts</span>, <span class="ruby-identifier">ends</span>]
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

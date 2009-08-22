@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Twig::User</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/twig/user_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/twig/user.rb">lib/twig/user.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000077">::new</a></li>
+					
+					<li><a href="#M000081">#befriend</a></li>
+					
+					<li><a href="#M000082">#defriend</a></li>
+					
+					<li><a href="#M000080">#message</a></li>
+					
+					<li><a href="#M000079">#status</a></li>
+					
+					<li><a href="#M000078">#timeline</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../History_txt.html">History.txt</a></li>
+				
+					<li class="file"><a href="../Manifest_txt.html">Manifest.txt</a></li>
+				
+					<li class="file"><a href="../README_txt.html">README.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Twig.html">Twig</a></li>
+				
+					<li><a href="../Twig/Friend.html">Twig::Friend</a></li>
+				
+					<li><a href="../Twig/Friend/Methods.html">Twig::Friend::Methods</a></li>
+				
+					<li><a href="../Twig/FriendBox.html">Twig::FriendBox</a></li>
+				
+					<li><a href="../Twig/Inbox.html">Twig::Inbox</a></li>
+				
+					<li><a href="../Twig/Inbox/Message.html">Twig::Inbox::Message</a></li>
+				
+					<li><a href="../Twig/Message.html">Twig::Message</a></li>
+				
+					<li><a href="../Twig/Messages.html">Twig::Messages</a></li>
+				
+					<li><a href="../Twig/Messages/Box.html">Twig::Messages::Box</a></li>
+				
+					<li><a href="../Twig/Messages/Methods.html">Twig::Messages::Methods</a></li>
+				
+					<li><a href="../Twig/My.html">Twig::My</a></li>
+				
+					<li><a href="../Twig/My/Methods.html">Twig::My::Methods</a></li>
+				
+					<li><a href="../Twig/Outbox.html">Twig::Outbox</a></li>
+				
+					<li><a href="../Twig/Outbox/Message.html">Twig::Outbox::Message</a></li>
+				
+					<li><a href="../Twig/Status.html">Twig::Status</a></li>
+				
+					<li><a href="../Twig/Status/Methods.html">Twig::Status::Methods</a></li>
+				
+					<li><a href="../Twig/Timeline.html">Twig::Timeline</a></li>
+				
+					<li><a href="../Twig/Timeline/Friends.html">Twig::Timeline::Friends</a></li>
+				
+					<li><a href="../Twig/Timeline/Mine.html">Twig::Timeline::Mine</a></li>
+				
+					<li><a href="../Twig/Timeline/Public.html">Twig::Timeline::Public</a></li>
+				
+					<li><a href="../Twig/Timelines.html">Twig::Timelines</a></li>
+				
+					<li><a href="../Twig/Timelines/Methods.html">Twig::Timelines::Methods</a></li>
+				
+					<li><a href="../Twig/User.html">Twig::User</a></li>
+				
+					<li><a href="../Twig/Users.html">Twig::Users</a></li>
+				
+					<li><a href="../Twig/Users/Methods.html">Twig::Users::Methods</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Twig::User</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="client-attribute-method" class="method-detail">
+				<a name="client"></a>
+				
+				<a name="client="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">client</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="info-attribute-method" class="method-detail">
+				<a name="info"></a>
+				
+				<a name="info="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">info</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+			<div id="timeline-attribute-method" class="method-detail">
+				<a name="timeline"></a>
+				
+				<a name="timeline="></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">timeline</span><span
+						class="attribute-access-type">[RW]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p class="missing-docs">(Not documented)</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000077"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(client, user)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p class="missing-docs">(Not documented)</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 153</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
+    <span class="ruby-ivar">@info</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="befriend-method" class="method-detail ">
+				<a name="M000081"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">befriend</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Attempts to add the <a href="User.html">Twig::User</a> as a friend.
+</p>
+<p>
+If successful, <em>befriend</em> returns the friended <a
+href="User.html">Twig::User</a>. If the user is not successfully friended,
+or if the <a href="User.html">Twig::User</a> is already a friend,
+<em>nil</em> will be returned and an error will be raised.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="befriend-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 208</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">befriend</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:add</span>, <span class="ruby-ivar">@info</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unable to befriend user '#{@info.screen_name}'&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="defriend-method" class="method-detail ">
+				<a name="M000082"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">defriend</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Attempts to remote the <a href="User.html">Twig::User</a> as a friend.
+</p>
+<p>
+If successful, <em>defriend</em> returns the de-friended <a
+href="User.html">Twig::User</a>. If the user is not successfully
+defriended, or if the <a href="User.html">Twig::User</a> is not currently a
+friend, <em>nil</em> will be returned and an error will be raised.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="defriend-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 226</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">defriend</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">friend</span>(<span class="ruby-identifier">:remove</span>, <span class="ruby-ivar">@info</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unable to defriend user '#{@info.screen_name}'&quot;</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="message-method" class="method-detail ">
+				<a name="M000080"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">message</span><span
+						class="method-args">(text)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Direct <a href="Messages.html">Messages</a> <em>text</em> to the user.
+</p>
+<p>
+If successful, returns the Twitter::Message object. If the message
+can&#8217;t be sent, or if <em>text</em> is greater than 140 characters,
+<em>nil</em> will be returned and an error will be raised.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="message-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 192</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">message</span>(<span class="ruby-identifier">text</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">140</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;Message cannot be longer than 140 characters.  Please trim &quot;</span> \
+                         <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{text.size - 140} characters from the message and try again.&quot;</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">message</span>(<span class="ruby-identifier">:post</span>, <span class="ruby-identifier">text</span>, <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="status-method" class="method-detail ">
+				<a name="M000079"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">status</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns the active <a href="Status.html">Twig::Status</a> for the <a
+href="User.html">Twig::User</a>. If the user has no <em>status</em> objects
+associated with it, <em>nil</em> will be returned.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="status-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 182</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">status</span>
+    <span class="ruby-identifier">timeline</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="timeline-method" class="method-detail ">
+				<a name="M000078"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">timeline</span><span
+						class="method-args">(action=nil)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns an Array of all recent <a href="Status.html">Twig::Status</a>
+objects for the <a href="User.html">Twig::User</a>.
+</p>
+<p>
+If <em>timeline</em> hasn&#8217;t been called before, or if <em>action</em>
+is :update, :sync, or :refresh, <em>timeline</em> will refresh itself with
+current <a href="Status.html">Twig::Status</a> objects from the Twitter
+server.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="timeline-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/twig/user.rb, line 164</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">timeline</span>(<span class="ruby-identifier">action</span>=<span class="ruby-keyword kw">nil</span>)
+    <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@timeline</span>
+      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">action</span>
+      <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:update</span>, <span class="ruby-identifier">:sync</span>, <span class="ruby-identifier">:refresh</span>
+        <span class="ruby-ivar">@timeline</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">timeline_for</span>(<span class="ruby-identifier">:user</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>
+        <span class="ruby-ivar">@timeline</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{action} is not a valid argument for @timeline.&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-ivar">@timeline</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">timeline_for</span>(<span class="ruby-identifier">:user</span>, <span class="ruby-identifier">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-keyword kw">end</span>
+  <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

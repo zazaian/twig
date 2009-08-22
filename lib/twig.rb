@@ -23,8 +23,9 @@ class Twig
   protected :password
  
   def initialize(opts={}) 
-    @login = opts[:login] ? opts[:login] : "zazaian" #@options.login
-    @password = opts[:password] ? opts[:password] : "Mistered1" #@options.password
+    @login = opts[:login]
+    @password = opts[:password]
+    raise "Cannot access twitter without user :login and :password" unless @login && @password
    
     @client = Twitter::Client.new(:login => @login, :password => @password)
   end
